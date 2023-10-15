@@ -1,7 +1,7 @@
-import React from 'react';
+import Layout from '../components/layout/Layout';
 
 const Services = () => {
-	return <div>Страница услуг</div>;
+	return <Layout>Страница услуг</Layout>;
 };
 
 export default Services;

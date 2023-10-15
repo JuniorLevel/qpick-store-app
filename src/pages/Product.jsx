@@ -1,7 +1,7 @@
-import React from 'react';
+import Layout from '../components/layout/Layout';
 
 const Product = () => {
-	return <div>Product page</div>;
+	return <Layout>Страница товаров</Layout>;
 };
 
 export default Product;

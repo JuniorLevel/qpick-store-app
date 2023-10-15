@@ -5,17 +5,17 @@ import {
 	CART_ROUTE,
 	CONTACTS_ROUTE,
 	FAVORITES_ROUTE,
+	HOME_ROUTE,
 	SERVICES_ROUTE,
 } from './../../utils/consts.js';
+import './Footer.module.scss';
 const Footer = () => {
 	return (
 		<footer>
 			<div className='bg-white-bg p-7 rounded-t-[30px] shadow-shadow grid grid-cols-4'>
-				<ul>
-					<li>
-						<Logo />
-					</li>
-				</ul>
+				<Link to={HOME_ROUTE}>
+					<Logo />
+				</Link>
 				<ul>
 					<li>
 						<Link to={FAVORITES_ROUTE}>Избранное</Link>

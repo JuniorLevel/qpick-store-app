@@ -16,6 +16,7 @@ import Home from './../pages/Home.jsx';
 import NotFound from './../pages/NotFound';
 import Order from './../pages/Order';
 import Product from './../pages/Product';
+import ProductInfo from './../pages/ProductInfo';
 import Services from './../pages/Services';
 const AppRouter = () => {
 	return (
@@ -25,7 +26,8 @@ const AppRouter = () => {
 			<Route path={CONTACTS_ROUTE} element={<Contacts />}></Route>
 			<Route path={FAVORITES_ROUTE} element={<Favorites />}></Route>
 			<Route path={ORDER_ROUTE} element={<Order />}></Route>
-			<Route path={PRODUCT_ROUTE + '/:id'} element={<Product />}></Route>
+			<Route path={PRODUCT_ROUTE} element={<Product />}></Route>
+			<Route path={PRODUCT_ROUTE + '/:id'} element={<ProductInfo />}></Route>
 			<Route path={SERVICES_ROUTE} element={<Services />}></Route>
 			<Route path={NOT_FOUND_ROUTE} element={<NotFound />}></Route>
 		</Routes>

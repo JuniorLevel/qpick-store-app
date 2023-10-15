@@ -1,7 +1,7 @@
-import React from 'react';
+import Layout from '../components/layout/Layout';
 
 const Favorites = () => {
-	return <div>Страница Избранного</div>;
+	return <Layout>Страница избранного</Layout>;
 };
 
 export default Favorites;

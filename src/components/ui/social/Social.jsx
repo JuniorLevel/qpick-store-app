@@ -5,7 +5,7 @@ import SocialWhats from './social-whats/SocialWhats';
 
 const Social = () => {
 	return (
-		<div>
+		<div className='flex flex-wrap'>
 			<SocialVk />
 			<SocialInst />
 			<SocialTeleg />
