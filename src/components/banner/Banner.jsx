@@ -12,25 +12,25 @@ SwiperCore.use([EffectFade]);
 
 const Banner = () => {
 	return (
-		<Swiper
-			effect='fade'
-			className='bg-black shadow-shadow rounded-[30px] min-h-[200px]'
-			modules={[Autoplay, Pagination, Navigation]}
-			pagination={{ clickable: true }}
-			navigation={true}
-			autoplay={{ delay: 1500 }}
-			loop={true}
-			spaceBetween={50}
-			slidesPerView={1}
-			onSlideChange={() => console.log('slide change')}
-			onSwiper={swiper => console.log(swiper)}
-		>
-			{bannersData.map(({ path, img, alt }) => (
-				<SwiperSlide key={alt}>
-					<BannerSlide path={path} img={img} alt={alt} />
-				</SwiperSlide>
-			))}
-		</Swiper>
+		<section>
+			<Swiper
+				effect='fade'
+				className='bg-black shadow-shadow rounded-[30px] min-h-[200px]'
+				modules={[Autoplay, Pagination, Navigation]}
+				pagination={{ clickable: true }}
+				navigation={true}
+				autoplay={{ delay: 1500 }}
+				loop={true}
+				spaceBetween={50}
+				slidesPerView={1}
+			>
+				{bannersData.map(({ path, img, alt }) => (
+					<SwiperSlide key={alt}>
+						<BannerSlide path={path} img={img} alt={alt} />
+					</SwiperSlide>
+				))}
+			</Swiper>
+		</section>
 	);
 };
 

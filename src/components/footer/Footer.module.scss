@@ -1,12 +1,15 @@
-ul {
-	li {
-		transition: all 0.5s ease-in-out;
-		transform: translateX(0px);
-		&:hover {
+.footer {
+	@apply mt-[60px];
+	&__list {
+		&Item {
 			transition: all 0.5s ease-in-out;
-			color: orange;
-			font-weight: 400;
-			transform: translateX(-15px);
+			transform: translateX(0px);
+			&:hover {
+				transition: all 0.5s ease-in-out;
+				color: orange;
+				font-weight: 400;
+				transform: translateX(-15px);
+			}
 		}
 	}
 }

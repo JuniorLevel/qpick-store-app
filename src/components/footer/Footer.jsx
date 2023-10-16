@@ -8,27 +8,27 @@ import {
 	HOME_ROUTE,
 	SERVICES_ROUTE,
 } from './../../utils/consts.js';
-import './Footer.module.scss';
+import styles from './Footer.module.scss';
 const Footer = () => {
 	return (
-		<footer>
+		<footer className={styles.footer}>
 			<div className='bg-white-bg p-7 rounded-t-[30px] shadow-shadow grid grid-cols-4'>
 				<Link to={HOME_ROUTE}>
 					<Logo />
 				</Link>
-				<ul>
-					<li>
+				<ul className={styles.footer__list}>
+					<li className={styles.footer__listItem}>
 						<Link to={FAVORITES_ROUTE}>Избранное</Link>
 					</li>
-					<li>
+					<li className={styles.footer__listItem}>
 						<Link to={CART_ROUTE}>Корзина</Link>
 					</li>
-					<li>
+					<li className={styles.footer__listItem}>
 						<Link to={CONTACTS_ROUTE}>Контакты</Link>
 					</li>
 				</ul>
-				<ul>
-					<li>
+				<ul className={styles.footer__list}>
+					<li className={styles.footer__listItem}>
 						<Link to={SERVICES_ROUTE}>Условия сервиса</Link>
 					</li>
 				</ul>

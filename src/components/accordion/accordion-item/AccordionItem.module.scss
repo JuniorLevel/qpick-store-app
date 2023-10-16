@@ -1,0 +1,14 @@
+.accordionItem {
+	@apply text-[20px] bg-white-bg shadow-shadow mb-2 p-4 last:mb-0;
+
+	&__title {
+		@apply text-[32px] text-black font-semibold flex justify-between items-center hover:cursor-pointer;
+	}
+
+	&__body {
+		@apply pl-3 font-normal text-black h-0 overflow-hidden;
+		&Open {
+			@apply h-auto;
+		}
+	}
+}
