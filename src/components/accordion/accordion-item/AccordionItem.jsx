@@ -1,38 +1,38 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 import styles from './AccordionItem.module.scss';
 
-const AccordionItem = ({ title, text, id }) => {
-	const [isSelected, setIsSelected] = useState(null);
-
-	const actionAccordion = id => {
-		isSelected === id ? setIsSelected(null) : setIsSelected(id);
-	};
+const AccordionItem = ({ title, text, isOpen, onClick }) => {
+	const accordionItemRef = useRef(null);
 
 	return (
 		<li className={styles.accordionItem}>
 			<div
 				className={styles.accordionItem__title}
 				onClick={() => {
-					actionAccordion(id);
-					console.log(isSelected, id);
+					onClick();
 				}}
 			>
 				<h2>{title}</h2>
-				<span>{isSelected === id ? '-' : '+'}</span>
+				<img
+					width={25}
+					height={25}
+					src={isOpen ? '/public/images/unlock.png' : '/public/images/lock.png'}
+					alt={isOpen ? 'unlock.png' : 'lock.png'}
+				/>
 			</div>
 			<div
-				className={
-					isSelected === id
-						? styles.accordionItem__bodyOpen
-						: styles.accordionItem__body
+				className={styles.accordionItem__body}
+				ref={accordionItemRef}
+				style={
+					isOpen
+						? { height: accordionItemRef.current.scrollHeight }
+						: { height: '0px' }
 				}
 			>
-				{text}
+				<div>{text}</div>
 			</div>
 		</li>
 	);
 };
-
-//TODO: Закрытие предыдущего аккордеона, смена значка + анимация
 
 export default AccordionItem;

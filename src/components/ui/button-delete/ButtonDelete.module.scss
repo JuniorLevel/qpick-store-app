@@ -1,0 +1,13 @@
+.btnDelete {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	cursor: pointer;
+	svg {
+		fill: #df6464;
+		&:hover {
+			transition: 0.5s ease-in-out;
+			fill: red;
+		}
+	}
+}
