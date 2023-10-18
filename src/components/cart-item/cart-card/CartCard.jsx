@@ -24,7 +24,7 @@ const CartCard = () => {
 					<div className='flex justify-between w-[200px]'>
 						<ButtonAction
 							onClick={() => {
-								if (count === 0) return;
+								if (count === 1) return;
 								setCount(count - 1);
 							}}
 							action='-'

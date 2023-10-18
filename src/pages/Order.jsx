@@ -1,7 +1,7 @@
 import Layout from '../components/layout/Layout';
 
 const Order = () => {
-	return <Layout>Страница услуг</Layout>;
+	return <Layout>Страница оформления заказа</Layout>;
 };
 
 export default Order;

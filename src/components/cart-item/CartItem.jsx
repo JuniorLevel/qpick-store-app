@@ -1,8 +1,10 @@
+import { ORDER_ROUTE } from '../../utils/consts';
 import Button from '../ui/button/Button';
 import Title from './../ui/title/Title';
 import CartCard from './cart-card/CartCard';
 import Delivery from './delivery/Delivery';
 import EmptyCartItem from './empty-cart-item/EmptyCartItem';
+
 const CartItem = () => {
 	const products = ['s'];
 
@@ -24,7 +26,7 @@ const CartItem = () => {
 										<span>1200₽</span>
 									</div>
 								</div>
-								<Button text='Перейти к оформлению' path='s' />
+								<Button text='Перейти к оформлению' path={ORDER_ROUTE} />
 							</div>
 						</div>
 					</div>
