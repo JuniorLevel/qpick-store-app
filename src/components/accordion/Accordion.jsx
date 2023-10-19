@@ -6,8 +6,7 @@ const Accordion = ({ accordionData }) => {
 
 	return (
 		<section>
-			<h1>Условия сервиса</h1>
-			<ul className='mt-[50px]'>
+			<ul>
 				{accordionData.map(data => (
 					<AccordionItem
 						key={data.id}

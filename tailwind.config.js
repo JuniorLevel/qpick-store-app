@@ -9,6 +9,7 @@ module.exports = {
 			'orange-text': '#FFA542',
 			'white-bg': '#FFFFFF',
 			black: '#1C1C27',
+			'input-bg': '#ced0c8',
 		},
 		boxShadow: {
 			shadow: '0px 0px 20px 0px rgba(0, 0, 0, 0.10)',
