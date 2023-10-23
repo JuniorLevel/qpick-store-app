@@ -1,4 +1,6 @@
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
 import {
 	CART_ROUTE,
 	CONTACTS_ROUTE,
@@ -18,7 +20,14 @@ import Order from './../pages/Order';
 import Product from './../pages/Product';
 import ProductInfo from './../pages/ProductInfo';
 import Services from './../pages/Services';
+import { getProducts } from '../features/products/products.slice';
+
 const AppRouter = () => {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getProducts());
+	}, []);
 	return (
 		<Routes>
 			<Route path={HOME_ROUTE} element={<Home />}></Route>

@@ -1,8 +1,15 @@
+import { useDispatch } from 'react-redux';
+import { removeFromCart } from '../../../features/products/products.slice';
 import styles from './ButtonDelete.module.scss';
 
-const ButtonDelete = () => {
+const ButtonDelete = ({ product }) => {
+	const dispatch = useDispatch();
+
 	return (
-		<div className={styles.btnDelete}>
+		<div
+			className={styles.btnDelete}
+			onClick={() => dispatch(removeFromCart(product))}
+		>
 			<svg
 				width='21'
 				height='17'

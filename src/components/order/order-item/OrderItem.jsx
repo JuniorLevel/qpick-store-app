@@ -13,7 +13,13 @@ const OrderItem = () => {
 						<span className='text-[15px]'>500₽</span>
 					</div>
 					<div className='mb-3'>
-						<img className='w-full' src='/images/map3.png' alt='map3.png' />
+						<a
+							href='https://yandex.ru/maps/-/CDa6eY0d'
+							target='_blank'
+							rel='noreferrer'
+						>
+							<img className='w-full' src='/images/map3.png' alt='map3.png' />
+						</a>
 					</div>
 					<OrderForm />
 				</div>

@@ -1,22 +1,22 @@
 import { useState } from 'react';
 import ButtonAction from './../../ui/button-action/ButtonAction';
 import ButtonDelete from './../../ui/button-delete/ButtonDelete';
-const CartCard = () => {
+const CartCard = ({ product }) => {
 	const [count, setCount] = useState(1);
 
 	return (
 		<div className='relative rounded-[30px] shadow-shadow bg-white-bg p-4 mb-4'>
 			<div>
-				<div className='flex gap-3 items-center'>
+				<div className='flex gap-3 items-center mb-3'>
 					<div className='w-[200px]'>
-						<img src='/images/Image.png' alt='img' />
+						<img src={product.images[0]} alt='img' className='rounded-[30px]' />
 					</div>
 					<div>
 						<p className='text-bg-black text-[17px] font-extrabold'>
-							Apple BYZ S852I
+							{product.title}
 						</p>
 						<span className='mt-3 text-[#AAA] text-[15px] font-semibold'>
-							2990₽
+							{`${product.price}$`}
 						</span>
 					</div>
 				</div>
@@ -38,10 +38,12 @@ const CartCard = () => {
 							action='+'
 						/>
 					</div>
-					<span className='text-sm font-semibold'>2990₽</span>
+					<span className='text-sm font-semibold'>{`${
+						product.price * count
+					}$`}</span>
 				</div>
 			</div>
-			<ButtonDelete />
+			<ButtonDelete product={product} />
 		</div>
 	);
 };

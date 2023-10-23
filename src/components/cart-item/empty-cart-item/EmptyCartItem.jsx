@@ -1,4 +1,4 @@
-import { PRODUCT_ROUTE } from '../../../utils/consts';
+import { HOME_ROUTE } from '../../../utils/consts';
 import Button from './../../ui/button/Button';
 
 const EmptyCartItem = () => {
@@ -16,7 +16,7 @@ const EmptyCartItem = () => {
 				<p className='text-title-color text-[20px] font-medium'>
 					Но это никогда не поздно исправить! :)
 				</p>
-				<Button text='В каталог товаров' path={PRODUCT_ROUTE} />
+				<Button text='В каталог товаров' path={HOME_ROUTE} />
 			</div>
 		</div>
 	);
