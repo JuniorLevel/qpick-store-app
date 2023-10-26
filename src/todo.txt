@@ -1,1 +1,0 @@
-TODO: Заменить иконки на react-icons

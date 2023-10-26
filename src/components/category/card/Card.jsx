@@ -10,6 +10,7 @@ import {
 } from '../../../features/products/products.slice.js';
 import { PRODUCT_ROUTE } from './../../../utils/consts.js';
 import styles from './Card.module.scss';
+import ProductImage from '/images/Image.png';
 const Card = ({ isSale, product, isFavorite, isCart }) => {
 	const dispatch = useDispatch();
 
@@ -20,7 +21,9 @@ const Card = ({ isSale, product, isFavorite, isCart }) => {
 					<div className='mb-5 h-[257px]'>
 						<img
 							className='w-full object-cover'
-							src={product.images[0]}
+							src={
+								product.images.length === 1 ? ProductImage : product.images[0]
+							}
 							alt='product'
 						/>
 					</div>
@@ -34,12 +37,14 @@ const Card = ({ isSale, product, isFavorite, isCart }) => {
 							>
 								<span className='mr-3 text-title-color'>300 000₽</span>
 								<span className='text-[red] font-bold'>25 300₽</span>
-								<span className={styles.card__priceDiscount}>-40%</span>
+								<span className='@apply absolute top-[-10px] right-[5px] text-[red]'>
+									-40%
+								</span>
 							</p>
 						) : (
 							<div className={styles.card__price}>
 								<div className='flex gap-1 items-center'>
-									<span>4.5</span> <FiStar className={styles.star} />
+									<span>4.5</span> <FiStar color='rgb(255, 196, 0)' />
 								</div>
 								<span>{product.price}$</span>
 							</div>

@@ -1,11 +1,7 @@
 .card {
-	@apply max-w-[320px] rounded-[30px] bg-white-bg shadow-shadow;
-	position: relative;
+	@apply relative max-w-[320px] rounded-[30px] bg-white-bg shadow-shadow;
 	&__btnFavorite {
-		display: none;
-		position: absolute;
-		top: 40px;
-		right: 40px;
+		@apply hidden absolute top-[40px] right-[40px];
 		&:hover {
 			svg {
 				transition: all 0.3s ease-in;
@@ -13,46 +9,30 @@
 			}
 		}
 		&Active {
-			position: absolute;
-			top: 40px;
-			right: 40px;
+			@apply absolute top-[40px] right-[40px];
 			svg {
 				fill: red;
 			}
 		}
 	}
 	&__btnCart {
-		width: 100%;
-		height: 50px;
-		padding: 5px;
-		font-size: 15px;
-		border-radius: 30px;
-		font-weight: bold;
-		background-color: black;
-		color: orange;
+		@apply w-full h-[50px] p-[5px] text-[15px] rounded-[30px] font-bold bg-black text-[orange];
 		transform: translateY(2px);
 		transition: all 0.5s ease-in;
 		&:hover {
+			@apply bg-[#444444];
 			transition: all 0.5s ease-in;
-			background-color: #444444;
 			transform: translateY(-2px);
 		}
 		&Clicked {
-			width: 100%;
-			height: 50px;
-			padding: 5px;
-			font-size: 15px;
-			border-radius: 30px;
-			font-weight: bold;
-			background-color: black;
-			opacity: 0.6;
+			@apply w-full h-[50px] p-[5px] text-[15px] rounded-[30px] font-bold bg-[black] opacity-60 text-[orange];
 			color: orange;
 			transform: translateY(2px);
 			transition: all 0.5s ease-in;
 			&:hover {
-				transition: all 0.5s ease-in;
-				opacity: 1;
+				@apply opacity-100;
 				transform: translateY(-2px);
+				transition: all 0.5s ease-in;
 			}
 		}
 	}
@@ -67,25 +47,11 @@
 	&__price {
 		@apply flex justify-between;
 		&Sale {
-			position: relative;
+			@apply relative;
 			&::before {
-				position: absolute;
+				@apply absolute top-[50%] w-[50px] h-[2px] bg-orange-text;
 				content: '';
-				top: 50%;
-				width: 50px;
-				height: 2px;
-				background-color: orange;
 			}
 		}
 	}
-	&__priceDiscount {
-		position: absolute;
-		top: -10px;
-		right: 25px;
-		color: red;
-	}
-}
-
-.star {
-	fill: rgb(255, 196, 0);
 }

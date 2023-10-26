@@ -12,7 +12,7 @@ import styles from './Footer.module.scss';
 const Footer = () => {
 	return (
 		<footer className={styles.footer}>
-			<div className='bg-white-bg p-7 rounded-t-[30px] shadow-shadow grid grid-cols-4'>
+			<div className='bg-white-bg p-7 rounded-t-[30px] shadow-shadow grid grid-cols-3'>
 				<Link to={HOME_ROUTE}>
 					<Logo />
 				</Link>
@@ -31,8 +31,8 @@ const Footer = () => {
 					<li className={styles.footer__listItem}>
 						<Link to={SERVICES_ROUTE}>Условия сервиса</Link>
 					</li>
+					<Social />
 				</ul>
-				<Social />
 			</div>
 		</footer>
 	);
