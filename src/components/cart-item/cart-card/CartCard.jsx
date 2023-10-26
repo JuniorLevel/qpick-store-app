@@ -1,7 +1,13 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import {
+	addTotalPrice,
+	subTotalPrice,
+} from '../../../features/prices/prices.slice.js';
 import ButtonAction from './../../ui/button-action/ButtonAction';
 import ButtonDelete from './../../ui/button-delete/ButtonDelete';
 const CartCard = ({ product }) => {
+	const dispatch = useDispatch();
 	const [count, setCount] = useState(1);
 
 	return (
@@ -26,6 +32,7 @@ const CartCard = ({ product }) => {
 							onClick={() => {
 								if (count === 1) return;
 								setCount(count - 1);
+								dispatch(subTotalPrice(product.price));
 							}}
 							action='-'
 						/>
@@ -34,6 +41,7 @@ const CartCard = ({ product }) => {
 							onClick={() => {
 								if (count === 100) return;
 								setCount(count + 1);
+								dispatch(addTotalPrice(product.price));
 							}}
 							action='+'
 						/>
@@ -43,7 +51,7 @@ const CartCard = ({ product }) => {
 					}$`}</span>
 				</div>
 			</div>
-			<ButtonDelete product={product} />
+			<ButtonDelete product={product} count={count} />
 		</div>
 	);
 };

@@ -5,14 +5,14 @@ export const optionsData = [
 	{
 		value: 'delivery',
 		label: 'Доставка курьером',
-		price: '500₽',
+		price: 50,
 		img: CarIcon,
 		alt: 'car-icon',
 	},
 	{
 		value: 'pickup',
 		label: 'Самовывоз',
-		price: '0₽',
+		price: 0,
 		img: GiftIcon,
 		alt: 'gift-icon',
 	},

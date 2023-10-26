@@ -8,6 +8,7 @@ import EmptyCartItem from './empty-cart-item/EmptyCartItem';
 
 const CartItem = () => {
 	const cartList = useSelector(state => state.products.cartList);
+	const totalPrice = useSelector(state => state.prices.totalPrice);
 
 	return (
 		<section>
@@ -26,7 +27,7 @@ const CartItem = () => {
 								<div className='m-w-[350px] '>
 									<div className='flex justify-between text-[20px] text-black'>
 										<span>ИТОГО</span>
-										<span>1200₽</span>
+										<span>{`${totalPrice}₽`}</span>
 									</div>
 								</div>
 								<Button text='Перейти к оформлению' path={ORDER_ROUTE} />

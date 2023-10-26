@@ -3,6 +3,10 @@ import { FiStar } from 'react-icons/fi';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
+	addTotalPrice,
+	subTotalPrice,
+} from '../../../features/prices/prices.slice.js';
+import {
 	addToCart,
 	addToFavorite,
 	removeFromCart,
@@ -58,9 +62,11 @@ const Card = ({ isSale, product, isFavorite, isCart }) => {
 					onClick={() => {
 						if (isCart) {
 							dispatch(removeFromCart(product));
+							dispatch(subTotalPrice(product.price));
 						} else {
 							dispatch(addToCart(product));
 							dispatch(removeFromFavorite(product));
+							dispatch(addTotalPrice(product.price));
 						}
 					}}
 				>

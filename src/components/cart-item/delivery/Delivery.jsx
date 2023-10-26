@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Select from 'react-select';
+import {
+	addDeliveryPrice,
+	subDeliveryPrice,
+} from '../../../features/prices/prices.slice.js';
 import { optionsData } from './options.data.js';
 
 const Delivery = () => {
 	const [selectValue, setSelectValue] = useState('pickup');
-
-	const [selectObject, setSelectObject] = useState({});
+	const [selectObject, setSelectObject] = useState(optionsData[0]);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		setSelectObject(...optionsData.filter(item => item.value === selectValue));
@@ -41,10 +46,16 @@ const Delivery = () => {
 						options={optionsData}
 						onChange={selectValue => {
 							setSelectValue(selectValue.value);
+							if (selectValue.value === 'delivery') {
+								dispatch(addDeliveryPrice(50));
+							}
+							if (selectValue.value === 'pickup') {
+								dispatch(subDeliveryPrice(50));
+							}
 						}}
 					/>
 				</div>
-				<span className='text-sm font-semibold'>{selectObject.price}</span>
+				<span className='text-sm font-semibold'>{`${selectObject.price}$`}</span>
 			</div>
 		</div>
 	);

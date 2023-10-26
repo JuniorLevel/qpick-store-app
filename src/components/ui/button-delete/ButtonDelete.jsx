@@ -1,14 +1,18 @@
 import { useDispatch } from 'react-redux';
+import { subTotalPrice } from '../../../features/prices/prices.slice';
 import { removeFromCart } from '../../../features/products/products.slice';
 import styles from './ButtonDelete.module.scss';
 
-const ButtonDelete = ({ product }) => {
+const ButtonDelete = ({ product, count }) => {
 	const dispatch = useDispatch();
 
 	return (
 		<div
 			className={styles.btnDelete}
-			onClick={() => dispatch(removeFromCart(product))}
+			onClick={() => {
+				dispatch(removeFromCart(product));
+				dispatch(subTotalPrice(product.price * count));
+			}}
 		>
 			<svg
 				width='21'

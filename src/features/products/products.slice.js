@@ -57,6 +57,11 @@ export const productsSlice = createSlice({
 	},
 });
 
-export const { addToFavorite, removeFromFavorite, addToCart, removeFromCart } =
-	productsSlice.actions;
+export const {
+	addToFavorite,
+	removeFromFavorite,
+	addToCart,
+	removeFromCart,
+	getTotalPrice,
+} = productsSlice.actions;
 export default productsSlice.reducer;
