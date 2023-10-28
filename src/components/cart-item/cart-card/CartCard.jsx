@@ -25,7 +25,7 @@ const CartCard = ({ product }) => {
 					</div>
 					<div>
 						<p className='text-bg-black text-[17px] font-extrabold'>
-							{product.title}
+							{product.title ? product.title : 'Some title product'}
 						</p>
 						<span className='mt-3 text-[#AAA] text-[15px] font-semibold'>
 							{`${product.price}$`}

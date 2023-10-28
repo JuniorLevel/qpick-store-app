@@ -11,8 +11,12 @@ const OrderItem = () => {
 			<div className='flex justify-between'>
 				<div className='max-w-[600px] rounded-[30px] shadow-shadow bg-white-bg py-4 px-8'>
 					<div className='flex justify-between mb-3 font-semibold'>
-						<p className='text-[17px]'>Доставка курьером</p>
-						<span className='text-[15px]'>500₽</span>
+						<p className='text-[17px]'>
+							{JSON.parse(localStorage.getItem('selectReceiving')).label}
+						</p>
+						<span className='text-[15px]'>{`${
+							JSON.parse(localStorage.getItem('selectReceiving')).price
+						}$`}</span>
 					</div>
 					<div className='mb-3'>
 						<a

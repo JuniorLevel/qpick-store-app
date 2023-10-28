@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import {
 	addDeliveryPrice,
@@ -8,13 +8,17 @@ import {
 import { optionsData } from './options.data.js';
 
 const Delivery = () => {
-	const [selectValue, setSelectValue] = useState('pickup');
-	const [selectObject, setSelectObject] = useState(optionsData[0]);
+	const [selectValue, setSelectValue] = useState(
+		localStorage.getItem('selectReceiving')
+			? JSON.parse(localStorage.getItem('selectReceiving'))
+			: optionsData.find(item => item.value === 'pickup')
+	);
 	const dispatch = useDispatch();
+	const totalPrice = useSelector(state => state.prices.totalPrice);
 
 	useEffect(() => {
-		setSelectObject(...optionsData.filter(item => item.value === selectValue));
-	}, [selectValue]);
+		localStorage.setItem('selectReceiving', JSON.stringify(selectValue));
+	}, []);
 
 	return (
 		<div className='rounded-[30px] bg-white-bg shadow-shadow p-4'>
@@ -33,19 +37,19 @@ const Delivery = () => {
 					<img
 						width={30}
 						height={30}
-						src={selectObject.img}
-						alt={selectObject.alt}
+						src={selectValue.img}
+						alt={selectValue.alt}
 					/>
 					<Select
 						className='text-[15px]'
-						value={
-							selectValue
-								? optionsData.find(item => item.value === selectValue)
-								: ''
-						}
+						value={selectValue}
 						options={optionsData}
 						onChange={selectValue => {
-							setSelectValue(selectValue.value);
+							setSelectValue(selectValue);
+							localStorage.setItem(
+								'selectReceiving',
+								JSON.stringify(selectValue)
+							);
 							if (selectValue.value === 'delivery') {
 								dispatch(addDeliveryPrice(50));
 							}
@@ -55,7 +59,7 @@ const Delivery = () => {
 						}}
 					/>
 				</div>
-				<span className='text-sm font-semibold'>{`${selectObject.price}$`}</span>
+				<span className='text-sm font-semibold'>{`${selectValue.price}$`}</span>
 			</div>
 		</div>
 	);

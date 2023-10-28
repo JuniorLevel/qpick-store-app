@@ -34,6 +34,7 @@ const AppRouter = () => {
 	useEffect(() => {
 		if (!cartList.length) {
 			dispatch(cancelTotalPrice(0));
+			localStorage.removeItem('selectReceiving');
 		}
 	}, [cartList]);
 	return (

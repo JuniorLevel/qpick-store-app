@@ -33,7 +33,7 @@ const Card = ({ isSale, product, isFavorite, isCart }) => {
 					</div>
 					<div className='text-[20px] mb-4'>
 						<h3 className='text-black font-bold text-center mb-3 min-h-[60px]'>
-							{product.title}
+							{product.title ? product.title : 'Some title product'}
 						</h3>
 						{isSale ? (
 							<p
