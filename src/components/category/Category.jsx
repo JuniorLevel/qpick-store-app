@@ -19,8 +19,16 @@ const Category = ({ title }) => {
 							key={product.id}
 							isSale={false}
 							product={product}
-							isFavorite={favoritesList.includes(product)}
-							isCart={cartList.includes(product)}
+							isFavorite={
+								localStorage.getItem(`isFavoriteProduct${product.id}id`)
+									? true
+									: false
+							}
+							isCart={
+								localStorage.getItem(`isCartProduct${product.id}id`)
+									? true
+									: false
+							}
 						/>
 					))
 				)}

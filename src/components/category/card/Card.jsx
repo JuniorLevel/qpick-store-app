@@ -64,11 +64,14 @@ const Card = ({ isSale, product, isFavorite, isCart }) => {
 							dispatch(removeFromCart(product));
 							dispatch(subTotalPrice(product.price));
 							localStorage.removeItem(`count${product.id}`);
+							localStorage.removeItem(`isCartProduct${product.id}id`);
 						} else {
 							dispatch(addToCart(product));
 							dispatch(removeFromFavorite(product));
 							dispatch(addTotalPrice(product.price));
 							localStorage.setItem(`count${product.id}`, 1);
+							localStorage.setItem(`isCartProduct${product.id}id`, true);
+							localStorage.removeItem(`isFavoriteProduct${product.id}id`);
 						}
 					}}
 				>
@@ -83,9 +86,12 @@ const Card = ({ isSale, product, isFavorite, isCart }) => {
 					onClick={() => {
 						if (isFavorite) {
 							dispatch(removeFromFavorite(product));
+							localStorage.removeItem(`isFavoriteProduct${product.id}id`);
 						} else {
 							dispatch(addToFavorite(product));
 							dispatch(removeFromCart(product));
+							localStorage.removeItem(`isCartProduct${product.id}id`);
+							localStorage.setItem(`isFavoriteProduct${product.id}id`, true);
 						}
 					}}
 				>
