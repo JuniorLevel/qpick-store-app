@@ -63,10 +63,12 @@ const Card = ({ isSale, product, isFavorite, isCart }) => {
 						if (isCart) {
 							dispatch(removeFromCart(product));
 							dispatch(subTotalPrice(product.price));
+							localStorage.removeItem(`count${product.id}`);
 						} else {
 							dispatch(addToCart(product));
 							dispatch(removeFromFavorite(product));
 							dispatch(addTotalPrice(product.price));
+							localStorage.setItem(`count${product.id}`, 1);
 						}
 					}}
 				>

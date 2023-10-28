@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-	totalPrice: 0,
+	totalPrice: localStorage.getItem('totalPrice')
+		? JSON.parse(localStorage.getItem('totalPrice'))
+		: 0,
 };
 
 export const pricesSlice = createSlice({
@@ -10,15 +12,22 @@ export const pricesSlice = createSlice({
 	reducers: {
 		addTotalPrice: (state, action) => {
 			state.totalPrice += action.payload;
+			localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice));
+		},
+		subTotalPrice: (state, action) => {
+			state.totalPrice -= action.payload;
+			localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice));
 		},
 		addDeliveryPrice: (state, action) => {
 			state.totalPrice += action.payload;
 		},
 		subDeliveryPrice: (state, action) => {
 			state.totalPrice -= action.payload;
+			localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice));
 		},
-		subTotalPrice: (state, action) => {
-			state.totalPrice -= action.payload;
+		cancelTotalPrice: (state, action) => {
+			state.totalPrice = action.payload;
+			localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice));
 		},
 	},
 });
@@ -28,5 +37,6 @@ export const {
 	subTotalPrice,
 	subDeliveryPrice,
 	addDeliveryPrice,
+	cancelTotalPrice,
 } = pricesSlice.actions;
 export default pricesSlice.reducer;

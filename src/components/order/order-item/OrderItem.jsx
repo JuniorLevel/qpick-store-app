@@ -1,7 +1,9 @@
 import Input from '../../ui/input/Input';
 import OrderTitle from '../../ui/order-title/OrderTitle';
 import ButtonSubmit from './../../ui/button-submit/ButtonSubmit';
+import TotalAmount from './../../ui/total-amount/TotalAmount';
 import OrderForm from './order-form/OrderForm';
+import OrderList from './order-list/OrderList';
 
 const OrderItem = () => {
 	return (
@@ -26,15 +28,8 @@ const OrderItem = () => {
 				<div>
 					<div className='max-w-[450px] rounded-[30px] shadow-shadow bg-white-bg p-4 mb-2'>
 						<OrderTitle title='Ваш заказ' />
-						<ul>
-							<li className='flex justify-between items-center text-[18px] font-medium'>
-								<span>1x</span>
-								<p className='flex-1 px-5 text-[16px] font-bold'>
-									Наушники Apple BYZ S852I
-								</p>
-								<span className=''>3 200₽</span>
-							</li>
-						</ul>
+						<OrderList />
+						<TotalAmount />
 					</div>
 					<div className='max-w-[450px] rounded-[30px] shadow-shadow bg-white-bg p-4 mb-2'>
 						<OrderTitle title='Способ оплаты' />

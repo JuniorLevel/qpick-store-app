@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
 	addTotalPrice,
@@ -8,7 +8,13 @@ import ButtonAction from './../../ui/button-action/ButtonAction';
 import ButtonDelete from './../../ui/button-delete/ButtonDelete';
 const CartCard = ({ product }) => {
 	const dispatch = useDispatch();
-	const [count, setCount] = useState(1);
+	const [count, setCount] = useState(
+		Number(localStorage.getItem(`count${product.id}`))
+	);
+
+	useEffect(() => {
+		localStorage.setItem(`count${product.id}`, count);
+	}, [count]);
 
 	return (
 		<div className='relative rounded-[30px] shadow-shadow bg-white-bg p-4 mb-4'>

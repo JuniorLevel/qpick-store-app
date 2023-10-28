@@ -3,8 +3,12 @@ import axios from 'axios';
 
 const initialState = {
 	productsList: [],
-	favoritesList: [],
-	cartList: [],
+	favoritesList: localStorage.getItem('favoritesList')
+		? JSON.parse(localStorage.getItem('favoritesList'))
+		: [],
+	cartList: localStorage.getItem('cartList')
+		? JSON.parse(localStorage.getItem('cartList'))
+		: [],
 	isLoading: false,
 	error: null,
 };
@@ -23,19 +27,29 @@ export const productsSlice = createSlice({
 	reducers: {
 		addToFavorite: (state, action) => {
 			state.favoritesList.push(action.payload);
+			localStorage.setItem(
+				'favoritesList',
+				JSON.stringify(state.favoritesList)
+			);
 		},
 		removeFromFavorite: (state, action) => {
 			state.favoritesList = state.favoritesList.filter(
 				item => item.id !== action.payload.id
 			);
+			localStorage.setItem(
+				'favoritesList',
+				JSON.stringify(state.favoritesList)
+			);
 		},
 		addToCart: (state, action) => {
 			state.cartList.push(action.payload);
+			localStorage.setItem('cartList', JSON.stringify(state.cartList));
 		},
 		removeFromCart: (state, action) => {
 			state.cartList = state.cartList.filter(
 				item => item.id !== action.payload.id
 			);
+			localStorage.setItem('cartList', JSON.stringify(state.cartList));
 		},
 	},
 	extraReducers: builder => {

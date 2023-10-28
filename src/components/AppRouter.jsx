@@ -1,6 +1,8 @@
-import { useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import { cancelTotalPrice } from '../features/prices/prices.slice';
+import { getProducts } from '../features/products/products.slice';
 import {
 	CART_ROUTE,
 	CONTACTS_ROUTE,
@@ -20,14 +22,20 @@ import Order from './../pages/Order';
 import Product from './../pages/Product';
 import ProductInfo from './../pages/ProductInfo';
 import Services from './../pages/Services';
-import { getProducts } from '../features/products/products.slice';
 
 const AppRouter = () => {
 	const dispatch = useDispatch();
+	const cartList = useSelector(state => state.products.cartList);
 
 	useEffect(() => {
 		dispatch(getProducts());
 	}, []);
+
+	useEffect(() => {
+		if (!cartList.length) {
+			dispatch(cancelTotalPrice(0));
+		}
+	}, [cartList]);
 	return (
 		<Routes>
 			<Route path={HOME_ROUTE} element={<Home />}></Route>

@@ -12,6 +12,7 @@ const ButtonDelete = ({ product, count }) => {
 			onClick={() => {
 				dispatch(removeFromCart(product));
 				dispatch(subTotalPrice(product.price * count));
+				localStorage.removeItem(`count${product.id}`);
 			}}
 		>
 			<svg
