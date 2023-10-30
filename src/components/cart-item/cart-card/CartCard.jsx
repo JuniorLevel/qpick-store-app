@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
 	addTotalPrice,
 	subTotalPrice,
 } from '../../../features/prices/prices.slice.js';
+import { PRODUCT_ROUTE } from './../../../utils/consts.js';
 import ButtonAction from './../../ui/button-action/ButtonAction';
 import ButtonDelete from './../../ui/button-delete/ButtonDelete';
 const CartCard = ({ product }) => {
@@ -21,7 +23,13 @@ const CartCard = ({ product }) => {
 			<div>
 				<div className='flex gap-3 items-center mb-3'>
 					<div className='w-[200px]'>
-						<img src={product.images[0]} alt='img' className='rounded-[30px]' />
+						<Link to={`${PRODUCT_ROUTE}/${product.id}`}>
+							<img
+								src={product.images[0]}
+								alt='img'
+								className='rounded-[30px]'
+							/>
+						</Link>
 					</div>
 					<div>
 						<p className='text-bg-black text-[17px] font-extrabold'>

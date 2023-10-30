@@ -1,34 +1,22 @@
-import { AiOutlineHeart } from 'react-icons/ai';
 import { FiStar } from 'react-icons/fi';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {
-	addTotalPrice,
-	subTotalPrice,
-} from '../../../features/prices/prices.slice.js';
-import {
-	addToCart,
-	addToFavorite,
-	removeFromCart,
-	removeFromFavorite,
-} from '../../../features/products/products.slice.js';
+import AddToCartBtn from '../../ui/add-to-cart-btn/AddToCartBtn.jsx';
+import AddToFavoriteBtn from '../../ui/add-to-favorite-btn/AddToFavoriteBtn.jsx';
 import { PRODUCT_ROUTE } from './../../../utils/consts.js';
 import styles from './Card.module.scss';
 import ProductImage from '/images/Image.png';
-const Card = ({ isSale, product, isFavorite, isCart }) => {
-	const dispatch = useDispatch();
-
+const Card = ({ isSale, product }) => {
 	return (
-		<article className={styles.card}>
+		<article
+			className={`${styles.card} max-w-[320px] rounded-[30px] bg-white-bg shadow-shadow`}
+		>
 			<div className='p-5'>
-				<Link to={PRODUCT_ROUTE + '/:id'}>
+				<Link to={PRODUCT_ROUTE + `/${product.id}`}>
 					<div className='mb-5 h-[257px]'>
 						<img
 							className='w-full object-cover'
-							src={
-								product.images.length === 1 ? ProductImage : product.images[0]
-							}
-							alt='product'
+							src={!product.images ? ProductImage : product.images}
+							alt={`product${product.id}`}
 						/>
 					</div>
 					<div className='text-[20px] mb-4'>
@@ -55,48 +43,13 @@ const Card = ({ isSale, product, isFavorite, isCart }) => {
 						)}
 					</div>
 				</Link>
-				<button
-					className={
-						isCart ? styles.card__btnCartClicked : styles.card__btnCart
+				<AddToCartBtn
+					isCart={
+						localStorage.getItem(`isCartProduct${product.id}id`) ? true : false
 					}
-					onClick={() => {
-						if (isCart) {
-							dispatch(removeFromCart(product));
-							dispatch(subTotalPrice(product.price));
-							localStorage.removeItem(`count${product.id}`);
-							localStorage.removeItem(`isCartProduct${product.id}id`);
-						} else {
-							dispatch(addToCart(product));
-							dispatch(removeFromFavorite(product));
-							dispatch(addTotalPrice(product.price));
-							localStorage.setItem(`count${product.id}`, 1);
-							localStorage.setItem(`isCartProduct${product.id}id`, true);
-							localStorage.removeItem(`isFavoriteProduct${product.id}id`);
-						}
-					}}
-				>
-					{isCart ? 'Убрать с корзины' : 'В корзину'}
-				</button>
-				<button
-					className={
-						isFavorite
-							? styles.card__btnFavoriteActive
-							: styles.card__btnFavorite
-					}
-					onClick={() => {
-						if (isFavorite) {
-							dispatch(removeFromFavorite(product));
-							localStorage.removeItem(`isFavoriteProduct${product.id}id`);
-						} else {
-							dispatch(addToFavorite(product));
-							dispatch(removeFromCart(product));
-							localStorage.removeItem(`isCartProduct${product.id}id`);
-							localStorage.setItem(`isFavoriteProduct${product.id}id`, true);
-						}
-					}}
-				>
-					<AiOutlineHeart />
-				</button>
+					product={product}
+				/>
+				<AddToFavoriteBtn product={product} />
 			</div>
 		</article>
 	);
