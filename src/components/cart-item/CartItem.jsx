@@ -21,7 +21,7 @@ const CartItem = () => {
 			</div>
 			{cartList.length ? (
 				<div className='flex justify-between gap-[120px]'>
-					<div className='max-w-[610px]'>
+					<div className='max-w-[610px] w-full'>
 						{cartList.map(product => (
 							<CartCard key={product.id} product={product} />
 						))}

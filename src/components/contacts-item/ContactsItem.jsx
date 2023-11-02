@@ -1,15 +1,15 @@
+import YandexMap from '../ui/yandex-map/YandexMap';
+
 const ContactsItem = () => {
 	return (
 		<div className='w-[860px] rounded-[30px] shadow-shadow bg-white-bg p-4 mb-10'>
 			<h1 className='text-[17px] font-semibold mb-3'>Наш офис</h1>
-			<div className='rounded=[10px] mb-3'>
-				<a
-					href='https://yandex.ru/maps/-/CDa6eY0d'
-					target='_blank'
-					rel='noreferrer'
-				>
-					<img className='w-full' src='/images/map2.png' alt='map2.png' />
-				</a>
+			<div className='rounded=[10px] mb-3 h-[300px]'>
+				<YandexMap
+					src={
+						'https://yandex.ru/map-widget/v1/?ll=76.826455%2C43.233490&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg2NzI4Nzk2NhJM0prQsNC30LDSm9GB0YLQsNC9LCDQkNC70LzQsNGC0YssINCQ0pvRgdCw0LktM9CQINGI0LDSk9GL0L0g0LDRg9C00LDQvdGLLCA2MiIKDfammUIVT-8sQg%2C%2C&z=17.94'
+					}
+				/>
 			</div>
 			<div className='flex gap-3 items-center'>
 				<div className='my-auto'>

@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
+	searchProduct: '',
 	productsList: [],
 	favoritesList: localStorage.getItem('favoritesList')
 		? JSON.parse(localStorage.getItem('favoritesList'))
@@ -62,6 +63,9 @@ export const productsSlice = createSlice({
 			);
 			localStorage.setItem('cartList', JSON.stringify(state.cartList));
 		},
+		searchProductByTitle: (state, action) => {
+			state.searchProduct = action.payload;
+		},
 	},
 	extraReducers: builder => {
 		builder
@@ -103,5 +107,6 @@ export const {
 	addToCart,
 	removeFromCart,
 	getTotalPrice,
+	searchProductByTitle,
 } = productsSlice.actions;
 export default productsSlice.reducer;

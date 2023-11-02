@@ -1,9 +1,10 @@
-import Input from '../../ui/input/Input'
-import OrderTitle from '../../ui/order-title/OrderTitle'
-import ButtonSubmit from './../../ui/button-submit/ButtonSubmit'
-import TotalAmount from './../../ui/total-amount/TotalAmount'
-import OrderForm from './order-form/OrderForm'
-import OrderList from './order-list/OrderList'
+import Input from '../../ui/input/Input';
+import OrderTitle from '../../ui/order-title/OrderTitle';
+import YandexMap from '../../ui/yandex-map/YandexMap';
+import ButtonSubmit from './../../ui/button-submit/ButtonSubmit';
+import TotalAmount from './../../ui/total-amount/TotalAmount';
+import OrderForm from './order-form/OrderForm';
+import OrderList from './order-list/OrderList';
 
 const OrderItem = () => {
 	return (
@@ -18,14 +19,12 @@ const OrderItem = () => {
 							JSON.parse(localStorage.getItem('selectReceiving')).price
 						}$`}</span>
 					</div>
-					<div className='mb-3'>
-						<a
-							href='https://yandex.ru/maps/-/CDa6eY0d'
-							target='_blank'
-							rel='noreferrer'
-						>
-							<img className='w-full' src='/images/map3.png' alt='map3.png' />
-						</a>
+					<div className='mb-3 h-[300px]'>
+						<YandexMap
+							src={
+								'https://yandex.ru/map-widget/v1/?ll=76.877407%2C43.252906&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCggyNDIwMDYwMRJI0prQsNC30LDSm9GB0YLQsNC9LCDQkNC70LzQsNGC0YssINCV0YHQtdC9INCU0q_QudGB0LXQvdC-0LIg0LrTqdGI0LXRgdGWIgoNq8CZQhUCAy1C&utm_source=share&z=18'
+							}
+						/>
 					</div>
 					<OrderForm />
 				</div>

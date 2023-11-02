@@ -5,6 +5,7 @@ import {
 	addDeliveryPrice,
 	subDeliveryPrice,
 } from '../../../features/prices/prices.slice.js';
+import YandexMap from './../../ui/yandex-map/YandexMap';
 import { optionsData } from './options.data.js';
 
 const Delivery = () => {
@@ -23,14 +24,12 @@ const Delivery = () => {
 	return (
 		<div className='rounded-[30px] bg-white-bg shadow-shadow p-4'>
 			<h2 className='mb-4 text-[black] text-[20px] font-semibold'>Доставка</h2>
-			<div>
-				<a
-					href='https://yandex.ru/maps/-/CDa6eY0d'
-					target='_blank'
-					rel='noreferrer'
-				>
-					<img src='/images/map.png' alt='map' />
-				</a>
+			<div className='h-[300px]'>
+				<YandexMap
+					src={
+						'https://yandex.ru/map-widget/v1/?ll=76.877407%2C43.252906&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCggyNDIwMDYwMRJI0prQsNC30LDSm9GB0YLQsNC9LCDQkNC70LzQsNGC0YssINCV0YHQtdC9INCU0q_QudGB0LXQvdC-0LIg0LrTqdGI0LXRgdGWIgoNq8CZQhUCAy1C&utm_source=share&z=18'
+					}
+				/>
 			</div>
 			<div className='mt-4 flex justify-between items-center'>
 				<div className='flex gap-3'>
