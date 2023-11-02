@@ -1,15 +1,15 @@
-import Input from '../../ui/input/Input';
-import OrderTitle from '../../ui/order-title/OrderTitle';
-import ButtonSubmit from './../../ui/button-submit/ButtonSubmit';
-import TotalAmount from './../../ui/total-amount/TotalAmount';
-import OrderForm from './order-form/OrderForm';
-import OrderList from './order-list/OrderList';
+import Input from '../../ui/input/Input'
+import OrderTitle from '../../ui/order-title/OrderTitle'
+import ButtonSubmit from './../../ui/button-submit/ButtonSubmit'
+import TotalAmount from './../../ui/total-amount/TotalAmount'
+import OrderForm from './order-form/OrderForm'
+import OrderList from './order-list/OrderList'
 
 const OrderItem = () => {
 	return (
 		<section>
 			<div className='flex justify-between'>
-				<div className='max-w-[600px] rounded-[30px] shadow-shadow bg-white-bg py-4 px-8'>
+				<div className='max-w-[600px] rounded-[30px] shadow-shadow bg-white-bg py-4 px-8 h-full'>
 					<div className='flex justify-between mb-3 font-semibold'>
 						<p className='text-[17px]'>
 							{JSON.parse(localStorage.getItem('selectReceiving')).label}

@@ -9,7 +9,6 @@ import { getProductById } from './../features/products/products.slice.js';
 const ProductInfo = () => {
 	const { id } = useParams();
 	const dispatch = useDispatch();
-	const productDetail = useSelector(state => state.products.productById);
 	const isLoading = useSelector(state => state.products.isLoading);
 
 	useEffect(() => {
@@ -17,11 +16,7 @@ const ProductInfo = () => {
 		dispatch(getProductById(id));
 	}, [id]);
 
-	return (
-		<Layout>
-			{isLoading ? <Loader /> : <CardDetail product={productDetail} />}
-		</Layout>
-	);
+	return <Layout>{isLoading ? <Loader /> : <CardDetail />}</Layout>;
 };
 
 export default ProductInfo;

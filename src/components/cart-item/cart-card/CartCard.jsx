@@ -22,12 +22,12 @@ const CartCard = ({ product }) => {
 		<div className='relative rounded-[30px] shadow-shadow bg-white-bg p-4 mb-4'>
 			<div>
 				<div className='flex gap-3 items-center mb-3'>
-					<div className='w-[200px]'>
+					<div className='w-[200px] h-[200px]'>
 						<Link to={`${PRODUCT_ROUTE}/${product.id}`}>
 							<img
 								src={product.images[0]}
 								alt='img'
-								className='rounded-[30px]'
+								className='rounded-[30px] w-full h-full object-cover'
 							/>
 						</Link>
 					</div>

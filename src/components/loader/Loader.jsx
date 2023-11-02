@@ -1,5 +1,7 @@
+import styles from './Loader.module.scss';
+
 const Loader = () => {
-	return <div>Loading.........</div>;
+	return <div className={styles.loader}></div>;
 };
 
 export default Loader;

@@ -1,3 +1,4 @@
+import { useInView } from 'react-intersection-observer';
 import { useSelector } from 'react-redux';
 import { ORDER_ROUTE } from '../../utils/consts';
 import Button from '../ui/button/Button';
@@ -9,20 +10,29 @@ import Delivery from './delivery/Delivery';
 
 const CartItem = () => {
 	const cartList = useSelector(state => state.products.cartList);
+	const { ref, inView } = useInView({
+		threshold: 1,
+	});
 
 	return (
 		<section>
-			<Title title='Корзина' />
+			<div ref={ref}>
+				<Title title='Корзина' />
+			</div>
 			{cartList.length ? (
 				<div className='flex justify-between gap-[120px]'>
-					<div className='w-[630px]'>
+					<div className='max-w-[610px]'>
 						{cartList.map(product => (
 							<CartCard key={product.id} product={product} />
 						))}
 						<Delivery />
 					</div>
 					<div>
-						<div className='w-[350px] rounded-[30px] shadow-shadow bg-white-bg p-4'>
+						<div
+							className={`w-[350px] rounded-[30px] shadow-shadow bg-white-bg p-4 ${
+								!inView ? 'sticky top-[15px]' : ''
+							}`}
+						>
 							<TotalAmount />
 							<Button text='Перейти к оформлению' path={ORDER_ROUTE} />
 						</div>

@@ -14,7 +14,7 @@ const Card = ({ isSale, product }) => {
 				<Link to={PRODUCT_ROUTE + `/${product.id}`}>
 					<div className='mb-5 h-[257px]'>
 						<img
-							className='w-full object-cover'
+							className='w-full h-full object-cover'
 							src={!product.images ? ProductImage : product.images}
 							alt={`product${product.id}`}
 						/>

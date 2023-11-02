@@ -24,9 +24,9 @@ const Banner = () => {
 				spaceBetween={50}
 				slidesPerView={1}
 			>
-				{bannersData.map(({ path, img, alt }) => (
+				{bannersData.map(({ img, alt }) => (
 					<SwiperSlide key={alt}>
-						<BannerSlide path={path} img={img} alt={alt} />
+						<BannerSlide img={img} alt={alt} />
 					</SwiperSlide>
 				))}
 			</Swiper>
