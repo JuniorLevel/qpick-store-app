@@ -2,7 +2,10 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { cancelTotalPrice } from '../features/prices/prices.slice';
-import { getProducts } from '../features/products/products.slice';
+import {
+	getProducts,
+	getProductsCategories,
+} from '../features/products/products.slice';
 import {
 	CART_ROUTE,
 	CONTACTS_ROUTE,
@@ -29,6 +32,7 @@ const AppRouter = () => {
 
 	useEffect(() => {
 		dispatch(getProducts());
+		dispatch(getProductsCategories());
 	}, []);
 
 	useEffect(() => {

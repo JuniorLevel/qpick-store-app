@@ -1,5 +1,4 @@
 .card {
-	@apply relative;
 	&__btnFavorite {
 		@apply hidden absolute top-[40px] right-[40px];
 		&:hover {

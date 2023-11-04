@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import Layout from '../components/layout/Layout';
 import EmptyItem from '../components/ui/empty-item/EmptyItem';
-import Card from './../components/category/card/Card';
+import Card from './../components/assortment/card/Card';
 import Title from './../components/ui/title/Title';
 
 const Favorites = () => {

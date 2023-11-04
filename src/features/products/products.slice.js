@@ -4,6 +4,8 @@ import axios from 'axios';
 const initialState = {
 	searchProduct: '',
 	productsList: [],
+	productsCategories: [],
+	filteredProducts: [],
 	favoritesList: localStorage.getItem('favoritesList')
 		? JSON.parse(localStorage.getItem('favoritesList'))
 		: [],
@@ -30,6 +32,14 @@ export const getProductById = createAsyncThunk(
 			`https://api.escuelajs.co/api/v1/products/${id}`
 		);
 		return res.data;
+	}
+);
+
+export const getProductsCategories = createAsyncThunk(
+	'products/getProductsCategories',
+	async id => {
+		const res = await axios.get(`https://api.escuelajs.co/api/v1/categories`);
+		return res.data.splice(0, 5);
 	}
 );
 
@@ -66,6 +76,9 @@ export const productsSlice = createSlice({
 		searchProductByTitle: (state, action) => {
 			state.searchProduct = action.payload;
 		},
+		filterProducts: (state, action) => {
+			state.filteredProducts = action.payload;
+		},
 	},
 	extraReducers: builder => {
 		builder
@@ -98,6 +111,18 @@ export const productsSlice = createSlice({
 				state.isLoading = false;
 				state.error = action.payload;
 			});
+		builder
+			.addCase(getProductsCategories.pending, () => {
+				console.log('work pend');
+			})
+			.addCase(getProductsCategories.fulfilled, (state, action) => {
+				console.log('work ful');
+				state.productsCategories = action.payload;
+			})
+			.addCase(getProductsCategories.rejected, () => {
+				console.log('work pend');
+				state.error = action.payload;
+			});
 	},
 });
 
@@ -106,7 +131,7 @@ export const {
 	removeFromFavorite,
 	addToCart,
 	removeFromCart,
-	getTotalPrice,
 	searchProductByTitle,
+	filterProducts,
 } = productsSlice.actions;
 export default productsSlice.reducer;

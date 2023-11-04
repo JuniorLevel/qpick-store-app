@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { MdClear } from 'react-icons/md';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { searchProductByTitle } from '../../../features/products/products.slice';
 
 const Search = () => {
-	const [inputValue, setInputValue] = useState('');
+	const searchProduct = useSelector(state => state.products.searchProduct);
+	const [inputValue, setInputValue] = useState(searchProduct);
 	const dispatch = useDispatch();
 	const clearInput = () => setInputValue('');
 	useEffect(() => {
@@ -15,7 +16,7 @@ const Search = () => {
 		<div className='relative max-w-[500px] w-full mx-2'>
 			<AiOutlineSearch className='absolute top-3 left-2' />
 			<input
-				value={inputValue}
+				value={searchProduct}
 				className='rounded-[30px] p-3 w-full text-[16px] pl-8 shadow-shadow'
 				type='text'
 				placeholder='Введите название товара'

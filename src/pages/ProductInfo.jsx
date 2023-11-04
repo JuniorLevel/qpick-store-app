@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import CardDetail from '../components/category/card/card-detail/CardDetail';
+import CardDetail from '../components/assortment/card/card-detail/CardDetail';
 import Layout from '../components/layout/Layout';
 import Loader from './../components/loader/Loader';
 import { getProductById } from './../features/products/products.slice.js';

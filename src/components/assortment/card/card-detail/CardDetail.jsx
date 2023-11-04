@@ -44,13 +44,13 @@ const CardDetail = () => {
 				</div>
 				<div className='flex justify-between font-bold'>
 					<div>
-						<span>{'Название товара:'}</span>
-						<span className='italic ml-2'>
-							{product.title ? product.title : 'Some title product'}
-						</span>
+						<span>Название товара:</span>
 					</div>
 					<span className='italic'>{`Цена: ${product.price}$`}</span>
 				</div>
+				<p className='italic'>
+					{product.title ? product.title : 'Some title product'}
+				</p>
 			</div>
 		</section>
 	);

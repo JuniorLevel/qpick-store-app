@@ -6,7 +6,7 @@ import {
 	removeFromCart,
 	removeFromFavorite,
 } from '../../../features/products/products.slice.js';
-import styles from './../../category/card/Card.module.scss';
+import styles from './../../assortment/card/Card.module.scss';
 const AddToFavoriteBtn = ({ product }) => {
 	const dispatch = useDispatch();
 	const [isFavorite, setIsFavorite] = useState(
