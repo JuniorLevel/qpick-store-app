@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Logo from '../logo/Logo';
-import Search from '../ui/search/Search.jsx';
 import { HOME_ROUTE } from './../../utils/consts.js';
+import Search from './../ui/search/Search';
 import HeaderPanel from './header-panel/HeaderPanel';
 const Header = () => {
 	return (
@@ -9,7 +9,7 @@ const Header = () => {
 			<Link to={HOME_ROUTE}>
 				<Logo />
 			</Link>
-			<Search />
+			{window.location.pathname === '/' ? <Search /> : <></>}
 			<HeaderPanel />
 		</header>
 	);

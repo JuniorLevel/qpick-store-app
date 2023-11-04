@@ -16,8 +16,6 @@ const Category = ({ title }) => {
 	};
 
 	useEffect(() => {
-		if (!filteredProductsList.length) {
-		}
 		setFilteredProductsList(filterProducts(inputValue, productsList));
 	}, [inputValue]);
 
@@ -26,7 +24,7 @@ const Category = ({ title }) => {
 			<h2 className='mb-5 text-title-color font-bold'>{title}</h2>
 			{isLoading ? (
 				<Loader />
-			) : !filteredProductsList.length ? (
+			) : !filteredProductsList.length && inputValue.length ? (
 				<div className='text-center'>
 					{`Ничего не нашлось по запросу "${inputValue}"`}
 				</div>
