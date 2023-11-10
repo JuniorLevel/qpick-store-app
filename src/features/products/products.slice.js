@@ -14,6 +14,7 @@ const initialState = {
 		: [],
 	productById: {},
 	isLoading: false,
+	isSuccess: false,
 	error: null,
 };
 
@@ -47,6 +48,12 @@ export const productsSlice = createSlice({
 	name: 'products',
 	initialState,
 	reducers: {
+		setIsLoading: (state, action) => {
+			state.isLoading = action.payload;
+		},
+		setIsSuccess: (state, action) => {
+			state.isSuccess = action.payload;
+		},
 		addToFavorite: (state, action) => {
 			state.favoritesList.push(action.payload);
 			localStorage.setItem(
@@ -72,6 +79,9 @@ export const productsSlice = createSlice({
 				item => item.id !== action.payload.id
 			);
 			localStorage.setItem('cartList', JSON.stringify(state.cartList));
+		},
+		clearCartList: (state, action) => {
+			state.cartList = action.payload;
 		},
 		searchProductByTitle: (state, action) => {
 			state.searchProduct = action.payload;
@@ -127,10 +137,13 @@ export const productsSlice = createSlice({
 });
 
 export const {
+	setIsLoading,
+	setIsSuccess,
 	addToFavorite,
 	removeFromFavorite,
 	addToCart,
 	removeFromCart,
+	clearCartList,
 	searchProductByTitle,
 	filterProducts,
 } = productsSlice.actions;

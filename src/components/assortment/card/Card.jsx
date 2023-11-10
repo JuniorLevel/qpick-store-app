@@ -8,7 +8,7 @@ import ProductImage from '/images/Image.png';
 const Card = ({ isSale, product }) => {
 	return (
 		<article
-			className={`${styles.card} max-w-[320px] rounded-[30px] bg-white-bg shadow-shadow`}
+			className={`${styles.card} relative max-w-[320px] rounded-[30px] bg-white-bg shadow-shadow`}
 		>
 			<div className='p-5'>
 				<Link to={PRODUCT_ROUTE + `/${product.id}`}>

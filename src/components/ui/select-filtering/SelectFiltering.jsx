@@ -73,6 +73,13 @@ const SelectFiltering = () => {
 								)
 							);
 							break;
+						case 'sad':
+							dispatch(
+								filterProducts(
+									productsList.filter(item => item.category.name === 'sad')
+								)
+							);
+							break;
 						case 'others':
 							dispatch(
 								filterProducts(
