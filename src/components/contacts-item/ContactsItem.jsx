@@ -1,8 +1,8 @@
+import { GoLocation } from 'react-icons/go';
 import YandexMap from '../ui/yandex-map/YandexMap';
-
 const ContactsItem = () => {
 	return (
-		<div className='w-[860px] rounded-[30px] shadow-shadow bg-white-bg p-4 mb-10'>
+		<div className='sm-max:mb-5 max-w-[860px] w-full rounded-[30px] shadow-shadow bg-white-bg p-4 mb-10'>
 			<h1 className='text-[17px] font-semibold mb-3'>Наш офис</h1>
 			<div className='rounded=[10px] mb-3 h-[300px]'>
 				<YandexMap
@@ -13,7 +13,7 @@ const ContactsItem = () => {
 			</div>
 			<div className='flex gap-3 items-center'>
 				<div className='my-auto'>
-					<img src='/images/location.svg' alt='location-icon' />
+					<GoLocation />
 				</div>
 				<div className='flex flex-col'>
 					<p className='font-medium text-[15px]'>

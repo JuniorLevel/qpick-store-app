@@ -1,6 +1,6 @@
 .card {
 	&__btnFavorite {
-		@apply hidden absolute top-[40px] right-[40px];
+		@apply absolute top-[40px] right-[40px];
 		&:hover {
 			svg {
 				transition: all 0.3s ease-in;

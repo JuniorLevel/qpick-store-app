@@ -1,8 +1,5 @@
 .btnDelete {
-	position: absolute;
-	top: 25px;
-	right: 25px;
-	cursor: pointer;
+	@apply sm-min:top-[15px] sm-min:right-[15px] absolute top-[20px] right-[20px] cursor-pointer;
 	svg {
 		fill: #df6464;
 		&:hover {

@@ -13,7 +13,7 @@ const Search = () => {
 		dispatch(searchProductByTitle(inputValue));
 	}, [inputValue]);
 	return (
-		<div className='relative max-w-[500px] w-full mx-2'>
+		<div className='relative max-w-[500px] w-full mx-2 sm:order-4 sm:mt-4 sm:mx-auto'>
 			<AiOutlineSearch className='absolute top-3 left-2' />
 			<input
 				value={searchProduct}

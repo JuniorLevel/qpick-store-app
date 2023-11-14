@@ -12,16 +12,16 @@ const AccordionItem = ({ title, text, isOpen, onClick }) => {
 					onClick();
 				}}
 			>
-				<h2>{title}</h2>
+				<h2 className='sm:text-sm md:base'>{title}</h2>
 				<img
 					width={25}
 					height={25}
-					src={isOpen ? '/public/images/unlock.png' : '/public/images/lock.png'}
+					src={isOpen ? '/images/unlock.png' : '/images/lock.png'}
 					alt={isOpen ? 'unlock.png' : 'lock.png'}
 				/>
 			</div>
 			<div
-				className={styles.accordionItem__body}
+				className={`${styles.accordionItem__body}`}
 				ref={accordionItemRef}
 				style={
 					isOpen
@@ -29,7 +29,7 @@ const AccordionItem = ({ title, text, isOpen, onClick }) => {
 						: { height: '0px' }
 				}
 			>
-				<div>{text}</div>
+				<div className='sm:text-[15px] md:text-[20px] mt-2'>{text}</div>
 			</div>
 		</li>
 	);

@@ -1,5 +1,7 @@
 .footer {
-	@apply mt-[60px];
+	&__block {
+		@apply mb-5 last:mb-0;
+	}
 	&__list {
 		&Item {
 			transition: all 0.5s ease-in-out;

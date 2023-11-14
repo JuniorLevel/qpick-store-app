@@ -38,7 +38,9 @@ const Assortment = ({ title }) => {
 		<section className='mt-9'>
 			<h2 className='mb-5 text-title-color font-bold'>{title}</h2>
 			{isLoading ? (
-				<Loader />
+				<div className='sm:top-40 left-[50%] absolute lg:top-[55%]'>
+					<Loader />
+				</div>
 			) : !searchedProductsList.length && inputValue.length ? (
 				<div className='text-center'>
 					{`Ничего не нашлось по запросу "${inputValue}"`}

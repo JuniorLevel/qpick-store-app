@@ -40,7 +40,7 @@ const Delivery = () => {
 						alt={selectValue.alt}
 					/>
 					<Select
-						className='text-[15px]'
+						className='sm-max:text-[10px] text-[15px]'
 						value={selectValue}
 						options={optionsData}
 						onChange={selectValue => {
@@ -58,7 +58,7 @@ const Delivery = () => {
 						}}
 					/>
 				</div>
-				<span className='text-sm font-semibold'>{`${selectValue.price}$`}</span>
+				<span className='sm-max:text-[17px] text-sm font-semibold'>{`${selectValue.price}$`}</span>
 			</div>
 		</div>
 	);

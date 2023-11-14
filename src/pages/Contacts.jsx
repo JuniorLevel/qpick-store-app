@@ -1,3 +1,4 @@
+import { BsFillTelephoneFill } from 'react-icons/bs';
 import ContactsItem from '../components/contacts-item/ContactsItem';
 import Layout from '../components/layout/Layout';
 import SocialInst from '../components/ui/social/social-inst/SocialInst';
@@ -12,9 +13,9 @@ const Contacts = () => {
 		<Layout>
 			<section>
 				<Title title='Контакты' />
-				<div className='flex justify-between'>
+				<div className='sm:flex-col flex justify-between gap-5'>
 					<ContactsItem />
-					<div>
+					<div className='sm-max:hidden'>
 						<SocialItem>
 							<SocialWhats />
 						</SocialItem>
@@ -31,10 +32,10 @@ const Contacts = () => {
 				</div>
 				<div className='flex gap-7 items-center'>
 					<div>
-						<img src='/images/phone.svg' alt='phone-icon' />
+						<BsFillTelephoneFill />
 					</div>
 					<a
-						className='text-2xl font-semibold hover:text-orange-text'
+						className='sm-max:text-[25px] text-2xl font-semibold hover:text-orange-text'
 						href='tel:+79888888890'
 					>
 						+7 988 888 88 90

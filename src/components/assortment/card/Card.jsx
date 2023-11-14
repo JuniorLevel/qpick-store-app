@@ -5,17 +5,19 @@ import AddToFavoriteBtn from '../../ui/add-to-favorite-btn/AddToFavoriteBtn.jsx'
 import { PRODUCT_ROUTE } from './../../../utils/consts.js';
 import styles from './Card.module.scss';
 import ProductImage from '/images/Image.png';
-const Card = ({ isSale, product }) => {
+const Card = ({ product }) => {
 	return (
 		<article
-			className={`${styles.card} relative max-w-[320px] rounded-[30px] bg-white-bg shadow-shadow`}
+			className={`${styles.card} relative sm:w-full lg:max-w-[320px] rounded-[30px] bg-white-bg shadow-shadow`}
 		>
 			<div className='p-5'>
 				<Link to={PRODUCT_ROUTE + `/${product.id}`}>
-					<div className='mb-5 h-[257px]'>
+					<div className='mb-5 md:h-[230px] lg:h-[200px] xl:h-[250px] 2xl:h-[278px]'>
 						<img
 							className='w-full h-full object-cover'
 							src={!product.images ? ProductImage : product.images}
+							width={100}
+							height={100}
 							alt={`product${product.id}`}
 						/>
 					</div>

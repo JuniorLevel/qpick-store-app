@@ -21,76 +21,39 @@ const SelectFiltering = () => {
 	return (
 		<div className='mb-5 text-end'>
 			<Form.Select
-				className='bg-[white] border-[red] p-3 pl-5 rounded-[30px] text-[20px]'
+				className='sm:max-w-[300px] sm:text-[15px] bg-[white] border-[red] p-3 pl-5 rounded-[30px] text-[20px]'
 				onChange={e => {
-					switch (e.target.value) {
-						case 'all':
-							dispatch(filterProducts(productsList));
-							break;
-						case 'expensive':
-							dispatch(
-								filterProducts(
-									[...productsList].sort((a, b) => b.price - a.price)
-								)
-							);
-							break;
-						case 'cheap':
-							dispatch(
-								filterProducts(
-									[...productsList].sort((a, b) => a.price - b.price)
-								)
-							);
-							break;
-						case 'clothes':
-							dispatch(
-								filterProducts(
-									productsList.filter(item => item.category.name === 'Clothes')
-								)
-							);
-							break;
-						case 'electronics':
-							dispatch(
-								filterProducts(
-									productsList.filter(
-										item => item.category.name === 'Electronics'
-									)
-								)
-							);
-							break;
-						case 'furniture':
-							dispatch(
-								filterProducts(
-									productsList.filter(
-										item => item.category.name === 'Furniture'
-									)
-								)
-							);
-							break;
-						case 'shoes':
-							dispatch(
-								filterProducts(
-									productsList.filter(item => item.category.name === 'Shoes')
-								)
-							);
-							break;
-						case 'sad':
-							dispatch(
-								filterProducts(
-									productsList.filter(item => item.category.name === 'sad')
-								)
-							);
-							break;
-						case 'others':
-							dispatch(
-								filterProducts(
-									productsList.filter(item => item.category.name === 'Others')
-								)
-							);
-							break;
-						default:
-							dispatch(filterProducts([]));
-							break;
+					if (e.target.value.toLowerCase() === 'all') {
+						dispatch(filterProducts(productsList));
 					}
+					if (e.target.value.toLowerCase() === 'expensive') {
+						dispatch(
+							filterProducts(
+								[...productsList].sort((a, b) => b.price - a.price)
+							)
+						);
+					}
+					if (e.target.value.toLowerCase() === 'cheap') {
+						dispatch(
+							filterProducts(
+								[...productsList].sort((a, b) => a.price - b.price)
+							)
+						);
+					}
+					productsCategories.map(category => {
+						if (e.target.value.toLowerCase() === category.name.toLowerCase()) {
+							console.log('yes');
+							dispatch(
+								filterProducts(
+									productsList.filter(
+										item =>
+											item.category.name.toLowerCase() ===
+											category.name.toLowerCase()
+									)
+								)
+							);
+						}
+					});
 				}}
 			>
 				<option value='all'>Весь ассортимент</option>

@@ -16,7 +16,7 @@ const ArrowUp = () => {
 
 	return (
 		<button
-			className={`fixed z-[99] left-10 bottom-10 rounded-[100%] ${
+			className={`fixed z-[99] left-5 bottom-5 rounded-[100%] ${
 				scroll > 2000 ? 'block' : 'hidden'
 			}`}
 			onClick={() => {

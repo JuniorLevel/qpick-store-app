@@ -16,7 +16,17 @@ const ProductInfo = () => {
 		dispatch(getProductById(id));
 	}, [id]);
 
-	return <Layout>{isLoading ? <Loader /> : <CardDetail />}</Layout>;
+	return (
+		<Layout>
+			{isLoading ? (
+				<div className='sm:top-[20%] md:top-[25%] lg-min:top-[30%] left-[50%] absolute '>
+					<Loader />
+				</div>
+			) : (
+				<CardDetail />
+			)}
+		</Layout>
+	);
 };
 
 export default ProductInfo;

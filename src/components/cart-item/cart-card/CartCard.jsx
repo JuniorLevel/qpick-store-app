@@ -19,10 +19,10 @@ const CartCard = ({ product }) => {
 	}, [count]);
 
 	return (
-		<div className='relative rounded-[30px] shadow-shadow bg-white-bg p-4 mb-4'>
+		<div className='sm:max-w-[320px] lg:max-w-[450px] lg:w-full relative rounded-[30px] shadow-shadow bg-white-bg p-4 mb-4'>
 			<div>
-				<div className='flex gap-3 items-center mb-3'>
-					<div className='w-[200px] h-[200px]'>
+				<div className='lg-max:flex-col flex gap-3 items-center mb-3'>
+					<div className='lg:max-w-[250px] lg:max-h-[250px] max-w-[200px] max-h-[200px]'>
 						<Link to={`${PRODUCT_ROUTE}/${product.id}`}>
 							<img
 								src={product.images[0]}
@@ -40,8 +40,8 @@ const CartCard = ({ product }) => {
 						</span>
 					</div>
 				</div>
-				<div className='flex justify-between'>
-					<div className='flex justify-between w-[200px]'>
+				<div className='md-max:flex-col md-max:items-center flex justify-between'>
+					<div className='md-max:order-2 flex justify-between w-[200px]'>
 						<ButtonAction
 							onClick={() => {
 								if (count === 1) return;

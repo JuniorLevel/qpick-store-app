@@ -20,24 +20,26 @@ const CartItem = () => {
 				<Title title='Корзина' />
 			</div>
 			{cartList.length ? (
-				<div className='flex justify-between gap-[120px]'>
-					<div className='max-w-[610px] w-full'>
-						{cartList.map(product => (
-							<CartCard key={product.id} product={product} />
-						))}
-						<Delivery />
-					</div>
-					<div>
-						<div
-							className={`w-[350px] rounded-[30px] shadow-shadow bg-white-bg p-4 ${
-								!inView ? 'sticky top-[15px]' : ''
-							}`}
-						>
-							<TotalAmount />
-							<Button text='Перейти к оформлению' path={ORDER_ROUTE} />
+				<>
+					<div className='sm:flex-col md-max:gap-5 lg:gap-[30px] flex justify-between gap-[120px]'>
+						<div className='sm:mx-auto sm:max-w-[320px] max-w-[610px] w-full'>
+							{cartList.map(product => (
+								<CartCard key={product.id} product={product} />
+							))}
+						</div>
+						<div>
+							<div
+								className={`sm:mb-10 sm:w-full md:w-[300px] w-[350px] rounded-[30px] shadow-shadow bg-white-bg p-4 ${
+									!inView ? 'sticky top-[15px]' : ''
+								}`}
+							>
+								<TotalAmount />
+								<Button text='Перейти к оформлению' path={ORDER_ROUTE} />
+							</div>
 						</div>
 					</div>
-				</div>
+					<Delivery />
+				</>
 			) : (
 				<EmptyItem title='Корзина пуста' />
 			)}

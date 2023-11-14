@@ -12,7 +12,7 @@ SwiperCore.use([EffectFade]);
 
 const Banner = () => {
 	return (
-		<section>
+		<section className='sm:hidden'>
 			<Swiper
 				effect='fade'
 				className='bg-black shadow-shadow rounded-[30px] min-h-[200px]'

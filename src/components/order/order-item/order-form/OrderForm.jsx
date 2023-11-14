@@ -55,7 +55,10 @@ const OrderForm = () => {
 
 	return (
 		<div>
-			<form className='flex gap-3 flex-wrap' onSubmit={handleSubmit(onSubmit)}>
+			<form
+				className='flex gap-3 flex-wrap max-w-[600px]'
+				onSubmit={handleSubmit(onSubmit)}
+			>
 				{JSON.parse(localStorage.getItem('selectReceiving')).value ===
 				'delivery' ? (
 					<>
@@ -67,7 +70,7 @@ const OrderForm = () => {
 								<>
 									<Select
 										placeholder='Выберите город'
-										className='w-full text-[20px]'
+										className='sm:text-[12px] w-full text-[20px]'
 										options={cities}
 										value={getValues(value)}
 										onChange={newValue => {
@@ -75,7 +78,7 @@ const OrderForm = () => {
 										}}
 									/>
 									{errors?.city && (
-										<div className='text-[red] text-[16px]'>
+										<div className='sm:text-[12px] text-[red] text-[16px]'>
 											{errors?.city.message}
 										</div>
 									)}
