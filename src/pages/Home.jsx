@@ -1,19 +1,44 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Assortment from '../components/assortment/Assortment';
 import Banner from '../components/banner/Banner';
 import Layout from '../components/layout/Layout';
-import { setIsSuccess } from '../features/products/products.slice';
+import { cancelTotalPrice } from '../features/prices/prices.slice';
+import {
+	getProducts,
+	getProductsCategories,
+	setIsSuccess,
+} from '../features/products/products.slice';
+import Error from './../components/ui/error/Error';
 
 const Home = () => {
 	const dispatch = useDispatch();
+	const cartList = useSelector(state => state.products.cartList);
+	const error = useSelector(state => state.products.error);
+
 	useEffect(() => {
+		dispatch(getProducts());
+		dispatch(getProductsCategories());
 		dispatch(setIsSuccess(false));
 	}, []);
+
+	useEffect(() => {
+		if (!cartList.length) {
+			dispatch(cancelTotalPrice(0));
+			localStorage.removeItem('selectReceiving');
+		}
+	}, [cartList]);
+
 	return (
 		<Layout>
-			<Banner />
-			<Assortment />
+			{error ? (
+				<Error error={error} />
+			) : (
+				<>
+					<Banner />
+					<Assortment />
+				</>
+			)}
 		</Layout>
 	);
 };

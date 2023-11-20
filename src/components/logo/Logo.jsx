@@ -1,9 +1,10 @@
-import logo from '/images/logo.svg';
 const Logo = () => {
 	return (
 		<div>
 			<div className='w-full hover:cursor-pointer'>
-				<img src={logo} alt='logo' />
+				<span className='text-main-text font-[Montserrat] text-[25px] hover:text-hover-color font-bold'>
+					QPICK
+				</span>
 			</div>
 		</div>
 	);

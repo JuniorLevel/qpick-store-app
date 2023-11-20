@@ -13,11 +13,11 @@ const Search = () => {
 		dispatch(searchProductByTitle(inputValue));
 	}, [inputValue]);
 	return (
-		<div className='relative max-w-[500px] w-full mx-2 sm:order-4 sm:mt-4 sm:mx-auto'>
+		<div className='sm-max:order-4 sm-max:mt-4 sm-max:mx-auto relative max-w-[500px] w-full mx-2'>
 			<AiOutlineSearch className='absolute top-3 left-2' />
 			<input
 				value={searchProduct}
-				className='rounded-[30px] p-3 w-full text-[16px] pl-8 shadow-shadow'
+				className='bg-main-bg rounded-[30px] p-3 w-full text-[16px] pl-8 shadow-shadow placeholder:text-main-text focus:placeholder:text-[0px] border-red border-[1px]'
 				type='text'
 				placeholder='Введите название товара'
 				onChange={e => {

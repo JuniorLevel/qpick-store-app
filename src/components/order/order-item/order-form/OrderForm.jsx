@@ -70,7 +70,7 @@ const OrderForm = () => {
 								<>
 									<Select
 										placeholder='Выберите город'
-										className='sm:text-[12px] w-full text-[20px]'
+										className='sm-max:text-[12px] w-full text-[20px] text-select-color-text'
 										options={cities}
 										value={getValues(value)}
 										onChange={newValue => {
@@ -78,7 +78,7 @@ const OrderForm = () => {
 										}}
 									/>
 									{errors?.city && (
-										<div className='sm:text-[12px] text-[red] text-[16px]'>
+										<div className='sm-max:text-[12px] text-[red] text-[16px]'>
 											{errors?.city.message}
 										</div>
 									)}

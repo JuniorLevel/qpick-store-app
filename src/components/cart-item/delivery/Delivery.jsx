@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { CiGift } from 'react-icons/ci';
+import { FaCarSide } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
 import Select from 'react-select';
 import {
 	addDeliveryPrice,
@@ -15,15 +17,16 @@ const Delivery = () => {
 			: optionsData.find(item => item.value === 'pickup')
 	);
 	const dispatch = useDispatch();
-	const totalPrice = useSelector(state => state.prices.totalPrice);
 
 	useEffect(() => {
 		localStorage.setItem('selectReceiving', JSON.stringify(selectValue));
-	}, []);
+	}, [selectValue]);
 
 	return (
-		<div className='rounded-[30px] bg-white-bg shadow-shadow p-4'>
-			<h2 className='mb-4 text-[black] text-[20px] font-semibold'>Доставка</h2>
+		<div className='rounded-[30px] bg-block-color-bg border-[1px] shadow-shadow p-4'>
+			<h2 className='mb-4 text-main-text text-[20px] font-semibold'>
+				Доставка
+			</h2>
 			<div className='h-[300px]'>
 				<YandexMap
 					src={
@@ -32,15 +35,14 @@ const Delivery = () => {
 				/>
 			</div>
 			<div className='mt-4 flex justify-between items-center'>
-				<div className='flex gap-3'>
-					<img
-						width={30}
-						height={30}
-						src={selectValue.img}
-						alt={selectValue.alt}
-					/>
+				<div className='flex items-center gap-3'>
+					{selectValue.value === 'delivery' ? (
+						<FaCarSide className='w-[30px] h-[30px]' />
+					) : (
+						<CiGift className='w-[30px] h-[30px]' />
+					)}
 					<Select
-						className='sm-max:text-[10px] text-[15px]'
+						className='sm-max:text-[10px] text-[15px] text-select-color-text'
 						value={selectValue}
 						options={optionsData}
 						onChange={selectValue => {

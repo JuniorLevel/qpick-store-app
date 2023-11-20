@@ -19,7 +19,7 @@ const CartCard = ({ product }) => {
 	}, [count]);
 
 	return (
-		<div className='sm:max-w-[320px] lg:max-w-[450px] lg:w-full relative rounded-[30px] shadow-shadow bg-white-bg p-4 mb-4'>
+		<div className='sm:max-w-[320px] lg:max-w-[450px] lg:w-full relative rounded-[30px] shadow-shadow bg-block-color-bg border-[1px] p-4 mb-4'>
 			<div>
 				<div className='lg-max:flex-col flex gap-3 items-center mb-3'>
 					<div className='lg:max-w-[250px] lg:max-h-[250px] max-w-[200px] max-h-[200px]'>
@@ -35,7 +35,7 @@ const CartCard = ({ product }) => {
 						<p className='text-bg-black text-[17px] font-extrabold'>
 							{product.title ? product.title : 'Some title product'}
 						</p>
-						<span className='mt-3 text-[#AAA] text-[15px] font-semibold'>
+						<span className='mt-3 text-main-text text-[15px] font-semibold'>
 							{`${product.price}$`}
 						</span>
 					</div>

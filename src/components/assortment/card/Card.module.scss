@@ -4,28 +4,27 @@
 		&:hover {
 			svg {
 				transition: all 0.3s ease-in;
-				fill: red;
+				@apply fill-hover-color;
 			}
 		}
 		&Active {
 			@apply absolute top-[40px] right-[40px];
 			svg {
-				fill: red;
+				@apply fill-hover-color;
 			}
 		}
 	}
 	&__btnCart {
-		@apply w-full h-[50px] p-[5px] text-[15px] rounded-[30px] font-bold bg-black text-[orange];
+		@apply w-full h-[50px] p-[5px] text-[15px] rounded-[30px] font-bold bg-button-color-bg text-main-text;
 		transform: translateY(2px);
 		transition: all 0.5s ease-in;
 		&:hover {
-			@apply bg-[#444444];
+			@apply bg-button-hover-color-bg;
 			transition: all 0.5s ease-in;
 			transform: translateY(-2px);
 		}
 		&Clicked {
-			@apply w-full h-[50px] p-[5px] text-[15px] rounded-[30px] font-bold bg-[black] opacity-60 text-[orange];
-			color: orange;
+			@apply w-full h-[50px] p-[5px] text-[15px] rounded-[30px] font-bold bg-button-color-bg opacity-60 text-main-text;
 			transform: translateY(2px);
 			transition: all 0.5s ease-in;
 			&:hover {
@@ -41,16 +40,6 @@
 		box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
 		button {
 			display: block;
-		}
-	}
-	&__price {
-		@apply flex justify-between;
-		&Sale {
-			@apply relative;
-			&::before {
-				@apply absolute top-[50%] w-[50px] h-[2px] bg-orange-text;
-				content: '';
-			}
 		}
 	}
 }

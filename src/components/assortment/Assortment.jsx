@@ -5,7 +5,7 @@ import Loader from '../loader/Loader';
 import SelectFiltering from './../ui/select-filtering/SelectFiltering';
 import CardList from './card-list/CardList';
 
-const Assortment = ({ title }) => {
+const Assortment = () => {
 	const dispatch = useDispatch();
 
 	const isLoading = useSelector(state => state.products.isLoading);
@@ -36,9 +36,8 @@ const Assortment = ({ title }) => {
 
 	return (
 		<section className='mt-9'>
-			<h2 className='mb-5 text-title-color font-bold'>{title}</h2>
 			{isLoading ? (
-				<div className='sm:top-40 left-[50%] absolute lg:top-[55%]'>
+				<div className='sm:top-40 lg:top-[55%] left-[50%] absolute'>
 					<Loader />
 				</div>
 			) : !searchedProductsList.length && inputValue.length ? (
@@ -49,7 +48,7 @@ const Assortment = ({ title }) => {
 				<>
 					{productsList.length ? <SelectFiltering /> : <></>}
 					{!filteredProducts.length ? (
-						<div className='text-center'>Товары не найдены</div>
+						<div className='text-center'>Товары отсутствуют</div>
 					) : (
 						<CardList
 							products={!inputValue ? filteredProducts : searchedProductsList}

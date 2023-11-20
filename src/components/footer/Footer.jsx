@@ -9,9 +9,9 @@ import FooterBlock from './footer-block/FooterBlock.jsx';
 const Footer = () => {
 	return (
 		<footer className={styles.footer}>
-			<div className='mt-[60px] bg-white-bg p-7 rounded-t-[30px] shadow-shadow'>
-				<div className='sm:grid-cols-1 md:flex md:space-between md:gap-9 md-max:text-[20px] md:flex-wrap grid grid-cols-3'>
-					<div className='sm:mb-5'>
+			<div className='mt-[60px] p-7 rounded-t-[30px] shadow-shadow bg-block-color-bg border-[1px]'>
+				<div className='sm-max:grid-cols-1 md:flex md:space-between md:gap-9 md-max:text-[20px] md:flex-wrap grid grid-cols-3'>
+					<div className='sm-max:mb-5'>
 						<Link to={HOME_ROUTE}>
 							<Logo />
 						</Link>

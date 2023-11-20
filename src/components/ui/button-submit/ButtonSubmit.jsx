@@ -4,7 +4,7 @@ const ButtonSubmit = ({ text }) => {
 	return (
 		<button
 			type='submit'
-			className='sm:text-[12px] bg-[black] text-[white] shadow-shadow mt-5 p-3 text-[15px] font-medium rounded-[15px] w-full hover:opacity-80'
+			className='sm-max:text-[12px] bg-button-color-bg text-main-text shadow-shadow mt-5 p-3 text-[15px] font-medium rounded-[15px] w-full hover:bg-main-text hover:text-button-color-bg transition ease delay-50'
 		>
 			{text}
 		</button>

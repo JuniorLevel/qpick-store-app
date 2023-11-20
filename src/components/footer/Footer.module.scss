@@ -1,17 +1,12 @@
 .footer {
-	&__block {
-		@apply mb-5 last:mb-0;
-	}
-	&__list {
-		&Item {
+		&__item {
 			transition: all 0.5s ease-in-out;
 			transform: translateX(0px);
 			&:hover {
 				transition: all 0.5s ease-in-out;
-				color: orange;
+				@apply text-hover-color;
 				font-weight: 400;
 				transform: translateX(-15px);
 			}
 		}
-	}
 }

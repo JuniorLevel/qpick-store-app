@@ -12,10 +12,10 @@ SwiperCore.use([EffectFade]);
 
 const Banner = () => {
 	return (
-		<section className='sm:hidden'>
+		<section className='sm-max:hidden'>
 			<Swiper
 				effect='fade'
-				className='bg-black shadow-shadow rounded-[30px] min-h-[200px]'
+				className='bg-black shadow-shadow rounded-[30px] min-h-[200px] border-[1px]'
 				modules={[Autoplay, Pagination, Navigation]}
 				pagination={{ clickable: true }}
 				navigation={true}

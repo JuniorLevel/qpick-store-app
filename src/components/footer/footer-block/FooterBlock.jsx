@@ -1,10 +1,9 @@
-import styles from '../Footer.module.scss';
 import FooterItem from '../footer-item/FooterItem';
 
 const FooterBlock = ({ data }) => {
 	return (
-		<div className={styles.footer__block}>
-			<ul className={styles.footer__list}>
+		<div className='mb-5 last:mb-0'>
+			<ul>
 				{data.map((item, idx) => (
 					<FooterItem key={idx} item={item} />
 				))}

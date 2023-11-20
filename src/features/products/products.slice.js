@@ -93,46 +93,34 @@ export const productsSlice = createSlice({
 	extraReducers: builder => {
 		builder
 			.addCase(getProducts.pending, state => {
-				console.log('work pend');
 				state.isLoading = true;
 			})
 			.addCase(getProducts.fulfilled, (state, action) => {
-				console.log('work ful');
 				state.isLoading = false;
 				state.productsList = action.payload;
 			})
 			.addCase(getProducts.rejected, (state, action) => {
-				console.log('work reject');
 				state.isLoading = false;
-				state.error = action.payload;
+				state.error = action.error;
 			});
 		builder
 			.addCase(getProductById.pending, state => {
-				console.log('work pend');
 				state.isLoading = true;
 			})
 			.addCase(getProductById.fulfilled, (state, action) => {
-				console.log('work ful');
 				state.isLoading = false;
 				state.productById = action.payload;
 			})
 			.addCase(getProductById.rejected, (state, action) => {
-				console.log('work reject');
 				state.isLoading = false;
-				state.error = action.payload;
+				state.error = action.error;
 			});
 		builder
-			.addCase(getProductsCategories.pending, () => {
-				console.log('work pend');
-			})
+			.addCase(getProductsCategories.pending, () => {})
 			.addCase(getProductsCategories.fulfilled, (state, action) => {
-				console.log('work ful');
 				state.productsCategories = action.payload;
 			})
-			.addCase(getProductsCategories.rejected, () => {
-				console.log('work pend');
-				state.error = action.payload;
-			});
+			.addCase(getProductsCategories.rejected, (state, action) => {});
 	},
 });
 

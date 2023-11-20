@@ -1,11 +1,4 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { cancelTotalPrice } from '../features/prices/prices.slice';
-import {
-	getProducts,
-	getProductsCategories,
-} from '../features/products/products.slice';
 import {
 	CART_ROUTE,
 	CONTACTS_ROUTE,
@@ -22,25 +15,10 @@ import Favorites from './../pages/Favorites';
 import Home from './../pages/Home.jsx';
 import NotFound from './../pages/NotFound';
 import Order from './../pages/Order';
-import Product from './../pages/Product';
 import ProductInfo from './../pages/ProductInfo';
 import Services from './../pages/Services';
 
 const AppRouter = () => {
-	const dispatch = useDispatch();
-	const cartList = useSelector(state => state.products.cartList);
-
-	useEffect(() => {
-		dispatch(getProducts());
-		dispatch(getProductsCategories());
-	}, []);
-
-	useEffect(() => {
-		if (!cartList.length) {
-			dispatch(cancelTotalPrice(0));
-			localStorage.removeItem('selectReceiving');
-		}
-	}, [cartList]);
 	return (
 		<Routes>
 			<Route path={HOME_ROUTE} element={<Home />}></Route>
@@ -48,7 +26,6 @@ const AppRouter = () => {
 			<Route path={CONTACTS_ROUTE} element={<Contacts />}></Route>
 			<Route path={FAVORITES_ROUTE} element={<Favorites />}></Route>
 			<Route path={ORDER_ROUTE} element={<Order />}></Route>
-			<Route path={PRODUCT_ROUTE} element={<Product />}></Route>
 			<Route path={PRODUCT_ROUTE + '/:id'} element={<ProductInfo />}></Route>
 			<Route path={SERVICES_ROUTE} element={<Services />}></Route>
 			<Route path={NOT_FOUND_ROUTE} element={<NotFound />}></Route>

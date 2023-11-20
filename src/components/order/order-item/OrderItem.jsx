@@ -13,9 +13,9 @@ const OrderItem = () => {
 		<section>
 			{!isSuccess ? (
 				<div className='md-max:flex-col flex justify-between gap-5'>
-					<div className='md-max:mx-auto max-w-[600px] rounded-[30px] shadow-shadow bg-white-bg py-4 px-8 h-full'>
+					<div className='md-max:mx-auto max-w-[600px] rounded-[30px] shadow-shadow py-4 px-8 h-full bg-block-color-bg border-[1px]'>
 						<div className='flex justify-between items-center mb-3 font-semibold'>
-							<p className='sm:text-[14px] text-[17px]'>
+							<p className='sm-max:text-[14px] text-[17px]'>
 								{JSON.parse(localStorage.getItem('selectReceiving')).label}
 							</p>
 							<span className='text-[15px]'>{`${
@@ -37,12 +37,12 @@ const OrderItem = () => {
 						<OrderForm />
 					</div>
 					<div className='lg-min:max-w-[350px] w-full'>
-						<div className='rounded-[30px] shadow-shadow bg-white-bg p-4 mb-2'>
+						<div className='rounded-[30px] shadow-shadow bg-block-color-bg border-[1px] p-4 mb-2'>
 							<OrderTitle title='Ваш заказ' />
 							<OrderList />
 							<TotalAmount />
 						</div>
-						<div className='lg-min:max-w-[450px] rounded-[30px] shadow-shadow bg-white-bg p-4 lg-min:mb-2'>
+						<div className='lg-min:max-w-[450px] lg-min:mb-2 rounded-[30px] shadow-shadow bg-block-color-bg border-[1px] p-4'>
 							<OrderTitle title='Способ оплаты' />
 							<div className='flex gap-1 items-center'>
 								<MdAttachMoney />

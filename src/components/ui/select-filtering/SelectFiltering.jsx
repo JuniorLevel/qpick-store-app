@@ -21,7 +21,7 @@ const SelectFiltering = () => {
 	return (
 		<div className='mb-5 text-end'>
 			<Form.Select
-				className='sm:max-w-[300px] sm:text-[15px] bg-[white] border-[red] p-3 pl-5 rounded-[30px] text-[20px]'
+				className='sm-max:max-w-[300px] sm-max:text-[15px] p-3 pl-5 rounded-[30px] text-[20px] bg-main-bg border-[1px]'
 				onChange={e => {
 					if (e.target.value.toLowerCase() === 'all') {
 						dispatch(filterProducts(productsList));
@@ -42,7 +42,8 @@ const SelectFiltering = () => {
 					}
 					productsCategories.map(category => {
 						if (e.target.value.toLowerCase() === category.name.toLowerCase()) {
-							console.log('yes');
+							console.log(e.target.value.toLowerCase(), '1');
+							console.log(category.name.toLowerCase(), '2');
 							dispatch(
 								filterProducts(
 									productsList.filter(

@@ -13,7 +13,7 @@ const Contacts = () => {
 		<Layout>
 			<section>
 				<Title title='Контакты' />
-				<div className='sm:flex-col flex justify-between gap-5'>
+				<div className='sm-max:flex-col flex justify-between gap-5'>
 					<ContactsItem />
 					<div className='sm-max:hidden'>
 						<SocialItem>
@@ -35,7 +35,7 @@ const Contacts = () => {
 						<BsFillTelephoneFill />
 					</div>
 					<a
-						className='sm-max:text-[25px] text-2xl font-semibold hover:text-orange-text'
+						className='sm-max:text-[25px] text-2xl font-semibold hover:text-hover-color'
 						href='tel:+79888888890'
 					>
 						+7 988 888 88 90

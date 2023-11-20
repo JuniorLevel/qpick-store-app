@@ -5,7 +5,7 @@ import Search from './../ui/search/Search';
 import HeaderPanel from './header-panel/HeaderPanel';
 const Header = () => {
 	return (
-		<header className='sm:flex-wrap sm:pb-0 flex justify-between items-center w-full py-6'>
+		<header className='sm-max:flex-wrap sm-max:pb-0 flex justify-between items-center w-full py-6'>
 			<Link to={HOME_ROUTE}>
 				<Logo />
 			</Link>
