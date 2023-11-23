@@ -6,7 +6,7 @@ const AccordionItem = ({ title, text, isOpen, onClick }) => {
 	const accordionItemRef = useRef(null);
 
 	return (
-		<li className='text-[20px] bg-block-color-bg shadow-shadow mb-2 p-4 last:mb-0 hover:border-[1px]'>
+		<div className='text-[20px] bg-block-color-bg shadow-shadow mb-2 p-4 last:mb-0 hover:border-[1px]'>
 			<div
 				className='text-[32px] text-black font-semibold flex justify-between items-center hover:cursor-pointer text-main-text'
 				onClick={() => {
@@ -31,7 +31,7 @@ const AccordionItem = ({ title, text, isOpen, onClick }) => {
 			>
 				<div className='sm-max:text-[15px] md:text-[20px] mt-2'>{text}</div>
 			</div>
-		</li>
+		</div>
 	);
 };
 

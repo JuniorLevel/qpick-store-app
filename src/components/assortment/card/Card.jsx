@@ -14,7 +14,7 @@ const Card = ({ product }) => {
 	});
 
 	const img = new Image();
-	img.src = product.images[0];
+	img.src = product.images;
 
 	return (
 		<article
@@ -29,7 +29,7 @@ const Card = ({ product }) => {
 						{inView ? (
 							<img
 								className='w-full h-full object-cover'
-								src={!img.complete ? ImageNotFound : product.images[0]}
+								src={!img.complete ? ImageNotFound : product.images}
 								alt={`product${product.id}`}
 							/>
 						) : (

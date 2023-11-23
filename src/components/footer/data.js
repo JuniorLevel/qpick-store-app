@@ -26,19 +26,19 @@ export const data = [
 
 export const data2 = [
 	{
-		link: '',
+		link: 'qwerty',
 		text: 'Лицензии',
 	},
 	{
-		link: '',
+		link: 'qwerty',
 		text: 'Трудоустройство',
 	},
 	{
-		link: '',
+		link: 'qwerty',
 		text: 'Для студентов',
 	},
 	{
-		link: '',
+		link: 'qwerty',
 		text: 'Отзывы',
 	},
 ];

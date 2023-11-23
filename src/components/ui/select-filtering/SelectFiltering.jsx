@@ -11,10 +11,6 @@ const SelectFiltering = () => {
 		state => state.products.productsCategories
 	);
 
-	const filteredProducts = useSelector(
-		state => state.products.filteredProducts
-	);
-
 	useEffect(() => {
 		dispatch(filterProducts(productsList));
 	}, []);
@@ -42,8 +38,6 @@ const SelectFiltering = () => {
 					}
 					productsCategories.map(category => {
 						if (e.target.value.toLowerCase() === category.name.toLowerCase()) {
-							console.log(e.target.value.toLowerCase(), '1');
-							console.log(category.name.toLowerCase(), '2');
 							dispatch(
 								filterProducts(
 									productsList.filter(

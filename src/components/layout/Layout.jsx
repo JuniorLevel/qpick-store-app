@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
 			<Header />
 			<main className='flex-1'>{children}</main>
 			<ArrowUp />
-			<Footer />
+			{window.location.pathname !== '/' && <Footer />}
 		</div>
 	);
 };

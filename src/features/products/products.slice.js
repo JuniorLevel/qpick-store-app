@@ -22,7 +22,7 @@ export const getProducts = createAsyncThunk(
 	'products/getProducts',
 	async () => {
 		const res = await axios.get('https://api.escuelajs.co/api/v1/products');
-		return res.data.splice(0, 180);
+		return res.data;
 	}
 );
 
@@ -40,7 +40,7 @@ export const getProductsCategories = createAsyncThunk(
 	'products/getProductsCategories',
 	async id => {
 		const res = await axios.get(`https://api.escuelajs.co/api/v1/categories`);
-		return res.data.splice(0, 5);
+		return res.data;
 	}
 );
 

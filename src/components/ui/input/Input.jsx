@@ -9,10 +9,14 @@ const Input = ({
 }) => {
 	return (
 		<>
-			<label className='sm-max:text-[14px] w-full text-[18px] font-[600]'>
+			<label
+				htmlFor={label}
+				className='sm-max:text-[14px] w-full text-[18px] font-[600]'
+			>
 				{inputLabel}
 			</label>
 			<input
+				id={label}
 				className={`sm-max:text-[12px] h-[45px] w-full py-1 px-2 placeholder:text-main-text focus:placeholder:text-[0px] font-medium rounded-[15px] text-[16px] ${classNames} bg-block-color-bg border-[1px] ${
 					errors[label] ? 'border-2 border-[red]' : 'border-transparent'
 				}`}

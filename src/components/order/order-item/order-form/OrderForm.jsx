@@ -46,9 +46,9 @@ const OrderForm = () => {
 				console.log(order);
 				reset();
 				return order;
-			}, 5000);
+			}, 1500);
 		} catch (e) {
-			dispatch(setIsLoading(true));
+			dispatch(setIsLoading(false));
 			alert(e.message);
 		}
 	};
