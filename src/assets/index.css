@@ -4,43 +4,39 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-	@apply text-main-text bg-main-bg;
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
-	font-weight: 400;
-	font-size: 25px;
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
+  @apply text-main-text bg-main-bg;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 25px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
-.swiper-pagination span{
-		@apply bg-main-text;
-		width: 10px;
-		height: 10px;
+.swiper-pagination span {
+  @apply bg-main-text;
+  width: 10px;
+  height: 10px;
 }
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-	@apply text-main-text;
+  @apply text-main-text;
 }
 
 .swiper-button-prev:hover::after,
-.swiper-button-next:hover::after{
-	@apply text-hover-color;
+.swiper-button-next:hover::after {
+  @apply text-hover-color;
 }
 
 .swiper-button-prev {
-	margin-left: 25px;
+  margin-left: 25px;
 }
 
 .swiper-button-next {
-	margin-right: 25px;
+  margin-right: 25px;
 }
-
-
-

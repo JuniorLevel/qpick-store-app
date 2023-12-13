@@ -1,10 +1,10 @@
-import { FC, ReactNode } from 'react';
-import Footer from '../footer/Footer';
-import Header from '../header/Header';
-import ArrowUp from '../ui/arrow-up/ArrowUp';
+import Footer from 'components/footer/Footer';
+import Header from 'components/header/Header';
+import ArrowUp from 'components/ui/arrow-up/ArrowUp';
+import { FC, ReactElement } from 'react';
 
 interface ILayoutProps {
-	children: ReactNode;
+	children: ReactElement;
 }
 
 const Layout: FC<ILayoutProps> = ({ children }): JSX.Element => {

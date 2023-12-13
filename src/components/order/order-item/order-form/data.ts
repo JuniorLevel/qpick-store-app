@@ -1,4 +1,4 @@
-import { ICitiesData } from '../../../../interfaces/interfaces'
+import { ICitiesData } from 'interfaces/interfaces'
 
 export const cities:ICitiesData[] = [
 	{

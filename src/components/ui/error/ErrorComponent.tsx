@@ -1,15 +1,17 @@
 import { FC } from 'react';
 
 interface IError {
-	name: string;
-	message: string;
+	name?: string;
+	message?: string;
 }
 
-interface IErrorProps {
+interface IErrorComponentProps {
 	error: IError;
 }
 
-const Error: FC<IErrorProps> = ({ error }): JSX.Element => {
+const ErrorComponent: FC<IErrorComponentProps> = ({ error }): JSX.Element => {
+	const reloadPage: React.MouseEventHandler = (): void => location.reload();
+
 	return (
 		<div className='sm-max:text-[20px] flex flex-col items-center justify-center h-[50vh] w-full'>
 			<div className='text-center'>В ходе работы с сайтом возникла ошибка!</div>
@@ -18,7 +20,7 @@ const Error: FC<IErrorProps> = ({ error }): JSX.Element => {
 			<div>
 				Попробуйте{' '}
 				<span
-					onClick={() => location.reload()}
+					onClick={reloadPage}
 					className='hover:text-hover-color hover:cursor-pointer'
 				>
 					перезагрузить страницу
@@ -29,4 +31,4 @@ const Error: FC<IErrorProps> = ({ error }): JSX.Element => {
 	);
 };
 
-export default Error;
+export default ErrorComponent;

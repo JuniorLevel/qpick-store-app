@@ -1,11 +1,11 @@
+import Button from 'components/ui/button/Button';
+import EmptyItem from 'components/ui/empty-item/EmptyItem';
+import Title from 'components/ui/title/Title';
+import TotalAmount from 'components/ui/total-amount/TotalAmount';
+import { useAppSelector } from 'hooks/useStore.ts';
 import { FC } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { ORDER_ROUTE } from '../../utils/consts';
-import Button from '../ui/button/Button';
-import EmptyItem from '../ui/empty-item/EmptyItem';
-import Title from '../ui/title/Title';
-import TotalAmount from '../ui/total-amount/TotalAmount';
-import { useAppSelector } from './../../hooks/useStore';
+import { ORDER_ROUTE } from 'utils/consts.ts';
 import CartCard from './cart-card/CartCard';
 import Delivery from './delivery/Delivery';
 

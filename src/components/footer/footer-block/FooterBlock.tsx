@@ -1,5 +1,5 @@
+import { IFooterData } from 'interfaces/interfaces.ts';
 import { FC } from 'react';
-import { IFooterData } from '../../../interfaces/interfaces';
 import FooterItem from '../footer-item/FooterItem';
 
 interface IFooterBlockProps {
@@ -10,8 +10,8 @@ const FooterBlock: FC<IFooterBlockProps> = ({ data }): JSX.Element => {
 	return (
 		<div className='mb-5 last:mb-0'>
 			<ul>
-				{data.map((item, idx) => (
-					<FooterItem key={idx} item={item} />
+				{data.map(item => (
+					<FooterItem key={item.id} item={item} />
 				))}
 			</ul>
 		</div>

@@ -1,9 +1,9 @@
+import { subTotalPrice } from 'features/prices/prices.slice.ts';
+import { removeFromCart } from 'features/products/products.slice.ts';
+import { useAppDispatch } from 'hooks/useStore.ts';
+import { IProduct } from 'interfaces/interfaces.ts';
 import { FC } from 'react';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { subTotalPrice } from '../../../features/prices/prices.slice';
-import { removeFromCart } from '../../../features/products/products.slice';
-import { IProduct } from '../../../interfaces/interfaces';
-import { useAppDispatch } from './../../../hooks/useStore';
 import styles from './ButtonDelete.module.scss';
 
 interface ButtonDeleteProps {

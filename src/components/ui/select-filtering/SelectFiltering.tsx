@@ -1,7 +1,7 @@
+import { filterProducts } from 'features/products/products.slice.ts';
+import { useAppDispatch, useAppSelector } from 'hooks/useStore.ts';
 import { FC, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
-import { filterProducts } from '../../../features/products/products.slice';
-import { useAppDispatch, useAppSelector } from './../../../hooks/useStore';
 const SelectFiltering: FC = (): JSX.Element => {
 	const dispatch = useAppDispatch();
 

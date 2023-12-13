@@ -1,13 +1,13 @@
-import { FC, useState } from 'react';
-import { AiOutlineHeart } from 'react-icons/ai';
-import { IoMdClose } from 'react-icons/io';
+import styles from 'components/assortment/card/Card.module.scss';
 import {
 	addToFavorite,
 	removeFromFavorite,
-} from '../../../features/products/products.slice.js';
-import { IProduct } from '../../../interfaces/interfaces.js';
-import { useAppDispatch } from './../../../hooks/useStore';
-import styles from './../../assortment/card/Card.module.scss';
+} from 'features/products/products.slice.ts';
+import { useAppDispatch } from 'hooks/useStore.ts';
+import { IProduct } from 'interfaces/interfaces.ts';
+import { FC, useState } from 'react';
+import { AiOutlineHeart } from 'react-icons/ai';
+import { IoMdClose } from 'react-icons/io';
 
 interface IAddToFavoriteBtnProps {
 	product: IProduct;
@@ -29,7 +29,7 @@ const AddToFavoriteBtn: FC<IAddToFavoriteBtnProps> = ({
 			onClick={() => {
 				if (
 					!isFavorite &&
-					!Boolean(localStorage.getItem(`isFavoriteProduct${product.id}id`))
+					!localStorage.getItem(`isFavoriteProduct${product.id}id`)
 				) {
 					dispatch(addToFavorite(product));
 					localStorage.setItem(

@@ -1,6 +1,6 @@
+import { IFooterData } from 'interfaces/interfaces.ts';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { IFooterData } from '../../../interfaces/interfaces';
 import styles from '../Footer.module.scss';
 
 interface IFooterItemProps {

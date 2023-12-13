@@ -1,8 +1,8 @@
+import Logo from 'components/logo/Logo';
+import Social from 'components/ui/social/Social.js';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { HOME_ROUTE } from '../../utils/consts.js';
-import Logo from '../logo/Logo.js';
-import Social from '../ui/social/Social.js';
+import { HOME_ROUTE } from 'utils/consts.js';
 import styles from './Footer.module.scss';
 import { data, data2 } from './data.js';
 import FooterBlock from './footer-block/FooterBlock.js';

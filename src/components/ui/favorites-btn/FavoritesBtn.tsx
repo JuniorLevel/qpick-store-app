@@ -1,6 +1,6 @@
+import { useAppSelector } from 'hooks/useStore.ts';
 import { FC } from 'react';
 import { PiHeartStraightLight } from 'react-icons/pi';
-import { useAppSelector } from './../../../hooks/useStore';
 
 const FavoritesBtn: FC = (): JSX.Element => {
 	const favoritesList = useAppSelector(state => state.products.favoritesList);

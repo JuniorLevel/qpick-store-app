@@ -1,5 +1,5 @@
+import { IInput } from 'interfaces/interfaces.ts';
 import { FC } from 'react';
-import { IInput } from '../../../interfaces/interfaces';
 
 const Input: FC<IInput> = ({
 	placeholder,

@@ -1,13 +1,13 @@
+import Cart from 'pages/Cart';
+import Contacts from 'pages/Contacts';
+import Favorites from 'pages/Favorites';
+import Home from 'pages/Home';
+import NotFound from 'pages/NotFound';
+import Order from 'pages/Order';
+import ProductInfo from 'pages/ProductInfo';
+import Services from 'pages/Services';
 import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Cart from '../pages/Cart.js';
-import Contacts from '../pages/Contacts.js';
-import Favorites from '../pages/Favorites.js';
-import Home from '../pages/Home.js';
-import NotFound from '../pages/NotFound.js';
-import Order from '../pages/Order.js';
-import ProductInfo from '../pages/ProductInfo.js';
-import Services from '../pages/Services.js';
 import {
 	CART_ROUTE,
 	CONTACTS_ROUTE,
@@ -17,7 +17,7 @@ import {
 	ORDER_ROUTE,
 	PRODUCT_ROUTE,
 	SERVICES_ROUTE,
-} from '../utils/consts.js';
+} from 'utils/consts.ts';
 
 const AppRouter: FC = (): JSX.Element => {
 	return (

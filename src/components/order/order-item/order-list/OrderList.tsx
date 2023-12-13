@@ -1,5 +1,5 @@
+import { useAppSelector } from 'hooks/useStore.ts';
 import { FC } from 'react';
-import { useAppSelector } from './../../../../hooks/useStore';
 import OrderListItem from './order-list-item/OrderListItem';
 const OrderList: FC = (): JSX.Element => {
 	const cartList = useAppSelector(state => state.products.cartList);

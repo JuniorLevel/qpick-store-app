@@ -1,6 +1,6 @@
+import { useAppSelector } from 'hooks/useStore.ts';
 import { FC } from 'react';
 import { BsCart2 } from 'react-icons/bs';
-import { useAppSelector } from './../../../hooks/useStore';
 
 const CartBtn: FC = (): JSX.Element => {
 	const cartList = useAppSelector(state => state.products.cartList);

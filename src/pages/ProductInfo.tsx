@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import CardDetail from '../components/assortment/card/card-detail/CardDetail.js';
 import Layout from '../components/layout/Layout.js';
 import Loader from '../components/loader/Loader.js';
-import Error from '../components/ui/error/Error.js';
+import Error from '../components/ui/error/ErrorComponent.js';
 import { getProductById } from '../features/products/products.slice.js';
 import { useAppDispatch, useAppSelector } from './../hooks/useStore';
 

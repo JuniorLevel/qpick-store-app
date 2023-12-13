@@ -1,11 +1,11 @@
+import styles from 'components/assortment/card/Card.module.scss';
+import { addTotalPrice } from 'features/prices/prices.slice.ts';
+import { addToCart } from 'features/products/products.slice.ts';
+import { useAppDispatch } from 'hooks/useStore.ts';
+import { IProduct } from 'interfaces/interfaces.ts';
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { addTotalPrice } from '../../../features/prices/prices.slice.js';
-import { addToCart } from '../../../features/products/products.slice.js';
-import { IProduct } from '../../../interfaces/interfaces.js';
-import { CART_ROUTE } from '../../../utils/consts.js';
-import { useAppDispatch } from './../../../hooks/useStore';
-import styles from './../../assortment/card/Card.module.scss';
+import { CART_ROUTE } from 'utils/consts.ts';
 
 interface IAddToCartBtnProps {
 	product: IProduct;

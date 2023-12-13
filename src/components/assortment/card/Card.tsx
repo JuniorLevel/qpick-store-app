@@ -1,11 +1,11 @@
+import AddToCartBtn from 'components/ui/add-to-cart-btn/AddToCartBtn';
+import AddToFavoriteBtn from 'components/ui/add-to-favorite-btn/AddToFavoriteBtn';
+import { IProduct } from 'interfaces/interfaces.ts';
 import { FC } from 'react';
 import { FiStar } from 'react-icons/fi';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
-import { IProduct } from '../../../interfaces/interfaces.js';
-import { PRODUCT_ROUTE } from '../../../utils/consts.js';
-import AddToCartBtn from '../../ui/add-to-cart-btn/AddToCartBtn.js';
-import AddToFavoriteBtn from '../../ui/add-to-favorite-btn/AddToFavoriteBtn.js';
+import { PRODUCT_ROUTE } from 'utils/consts.ts';
 import styles from './Card.module.scss';
 import ImageNotFound from '/images/image-not-found.jpg';
 

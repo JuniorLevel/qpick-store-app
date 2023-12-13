@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { ICategory, IProduct } from '../../interfaces/interfaces'
+import { ICategory, IProduct } from 'interfaces/interfaces'
 
 interface IDefaultState {
 	searchProduct: string;

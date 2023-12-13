@@ -1,6 +1,6 @@
+import Button from 'components/ui/button/Button';
 import { FC } from 'react';
-import { HOME_ROUTE } from '../../utils/consts';
-import Button from '../ui/button/Button';
+import { HOME_ROUTE } from 'utils/consts.ts';
 
 const NotFoundItem: FC = (): JSX.Element => {
 	return (

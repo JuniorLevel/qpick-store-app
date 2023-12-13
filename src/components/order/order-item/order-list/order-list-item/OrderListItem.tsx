@@ -1,5 +1,5 @@
+import { IProduct } from 'interfaces/interfaces.ts';
 import { FC } from 'react';
-import { IProduct } from '../../../../../interfaces/interfaces';
 
 interface IOrderListItemProps {
 	item: IProduct;

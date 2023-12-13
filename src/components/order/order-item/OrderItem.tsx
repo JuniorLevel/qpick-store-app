@@ -1,11 +1,11 @@
+import OrderTitle from 'components/ui/order-title/OrderTitle';
+import Success from 'components/ui/success/Success';
+import TotalAmount from 'components/ui/total-amount/TotalAmount';
+import YandexMap from 'components/ui/yandex-map/YandexMap';
+import { useAppSelector } from 'hooks/useStore.ts';
 import { FC, useEffect, useRef, useState } from 'react';
 import { MdAttachMoney } from 'react-icons/md';
 import { CSSTransition } from 'react-transition-group';
-import OrderTitle from '../../ui/order-title/OrderTitle';
-import Success from '../../ui/success/Success';
-import TotalAmount from '../../ui/total-amount/TotalAmount';
-import YandexMap from '../../ui/yandex-map/YandexMap';
-import { useAppSelector } from './../../../hooks/useStore';
 import OrderForm from './order-form/OrderForm';
 import OrderList from './order-list/OrderList';
 
@@ -32,16 +32,16 @@ const OrderItem: FC = (): JSX.Element => {
 							<div className='flex justify-between items-center mb-3 font-semibold'>
 								<p className='sm-max:text-[14px] text-[17px]'>
 									{
-										JSON.parse(localStorage.getItem('selectReceiving') || '{}')
+										JSON.parse(localStorage.getItem('selectReceiving') ?? '{}')
 											.label
 									}
 								</p>
 								<span className='text-[15px]'>{`${
-									JSON.parse(localStorage.getItem('selectReceiving') || '{}')
+									JSON.parse(localStorage.getItem('selectReceiving') ?? '{}')
 										.price
 								}$`}</span>
 							</div>
-							{JSON.parse(localStorage.getItem('selectReceiving') || '{}')
+							{JSON.parse(localStorage.getItem('selectReceiving') ?? '{}')
 								.value === 'delivery' ? (
 								<></>
 							) : (

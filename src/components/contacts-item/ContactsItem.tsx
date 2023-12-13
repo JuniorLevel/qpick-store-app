@@ -1,7 +1,7 @@
+import YandexMap from 'components/ui/yandex-map/YandexMap';
 import { FC, useEffect, useRef, useState } from 'react';
 import { GoLocation } from 'react-icons/go';
 import { CSSTransition } from 'react-transition-group';
-import YandexMap from '../ui/yandex-map/YandexMap';
 const ContactsItem: FC = (): JSX.Element => {
 	const [show, setShow] = useState<boolean>(false);
 	const nodeRef = useRef<HTMLDivElement | null>(null);

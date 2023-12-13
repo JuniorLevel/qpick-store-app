@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { HOME_ROUTE } from '../../../utils/consts';
+import { HOME_ROUTE } from 'utils/consts.ts';
 import Button from '../button/Button';
 
 interface IEmptyItemProps {

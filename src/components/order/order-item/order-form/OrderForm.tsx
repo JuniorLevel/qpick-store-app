@@ -1,15 +1,15 @@
-import { Controller, useForm } from 'react-hook-form';
-import Select from 'react-select';
+import Loader from 'components/loader/Loader';
+import ButtonSubmit from 'components/ui/button-submit/ButtonSubmit.js';
+import Input from 'components/ui/input/Input.js';
 import {
 	clearCartList,
 	setIsLoading,
 	setIsSuccess,
-} from '../../../../features/products/products.slice.js';
-import Loader from '../../../loader/Loader.js';
-import ButtonSubmit from '../../../ui/button-submit/ButtonSubmit.js';
-import Input from '../../../ui/input/Input.js';
-import { useAppDispatch, useAppSelector } from './../../../../hooks/useStore';
-import { cities } from './data.js';
+} from 'features/products/products.slice.ts';
+import { useAppDispatch, useAppSelector } from 'hooks/useStore.ts';
+import { Controller, useForm } from 'react-hook-form';
+import Select from 'react-select';
+import { cities } from './data.ts';
 
 const OrderForm = () => {
 	const {

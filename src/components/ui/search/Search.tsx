@@ -1,8 +1,8 @@
+import { searchProductByTitle } from 'features/products/products.slice.ts';
+import { useAppDispatch, useAppSelector } from 'hooks/useStore.ts';
 import { FC, useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { MdClear } from 'react-icons/md';
-import { searchProductByTitle } from '../../../features/products/products.slice';
-import { useAppDispatch, useAppSelector } from '../../../hooks/useStore';
 
 const Search: FC = (): JSX.Element => {
 	const searchProduct = useAppSelector(state => state.products.searchProduct);

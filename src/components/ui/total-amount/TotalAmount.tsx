@@ -1,5 +1,5 @@
+import { useAppSelector } from 'hooks/useStore.ts';
 import { FC } from 'react';
-import { useAppSelector } from './../../../hooks/useStore';
 const TotalAmount: FC = (): JSX.Element => {
 	const totalPrice = useAppSelector(state => state.prices.totalPrice);
 	return (
