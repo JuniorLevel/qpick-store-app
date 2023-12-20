@@ -1,15 +1,15 @@
-import { FC, useEffect } from 'react';
-import Assortment from '../components/assortment/Assortment';
-import Banner from '../components/banner/Banner';
-import Layout from '../components/layout/Layout';
-import ErrorComponent from '../components/ui/error/ErrorComponent';
-import { cancelTotalPrice } from '../features/prices/prices.slice';
+import Assortment from 'components/assortment/Assortment';
+import Banner from 'components/banner/Banner';
+import ErrorComponent from 'components/error/ErrorComponent';
+import Layout from 'components/layout/Layout';
+import { cancelTotalPrice } from 'features/prices/prices.slice.ts';
 import {
   getProducts,
   getProductsCategories,
   setIsSuccess,
-} from '../features/products/products.slice';
-import { useAppDispatch, useAppSelector } from './../hooks/useStore';
+} from 'features/products/products.slice.ts';
+import { useAppDispatch, useAppSelector } from 'hooks/useStore.ts';
+import { FC, useEffect } from 'react';
 
 const Home: FC = (): JSX.Element => {
   const dispatch = useAppDispatch();

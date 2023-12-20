@@ -59,27 +59,6 @@ const Assortment: FC = (): JSX.Element => {
           products={!inputValue ? filteredProducts : searchedProductsList}
         />
       )}
-
-      {/* {isLoading ? (
-        <div className="sm:top-40 lg:top-[55%] left-[50%] absolute">
-          <Loader />
-        </div>
-      ) : !searchedProductsList.length && inputValue.length ? (
-        <div className="text-center">
-          {`Ничего не нашлось по запросу "${inputValue}"`}
-        </div>
-      ) : (
-        <>
-          {productsList.length ? <SelectFiltering /> : <></>}
-          {!filteredProducts.length ? (
-            <div className="text-center">Товары отсутствуют</div>
-          ) : (
-            <CardList
-              products={!inputValue ? filteredProducts : searchedProductsList}
-            />
-          )}
-        </>
-      )} */}
     </section>
   );
 };

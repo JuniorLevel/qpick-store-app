@@ -13,42 +13,42 @@ import { bannersData } from './banners.data';
 SwiperCore.use([EffectFade]);
 
 const Banner: FC = (): JSX.Element => {
-	const nodeRef = useRef(null);
-	const [show, setShow] = useState<boolean>(false);
+  const nodeRef = useRef(null);
+  const [show, setShow] = useState<boolean>(false);
 
-	useEffect(() => {
-		setShow(!show);
-	}, []);
+  useEffect(() => {
+    setShow(!show);
+  }, []);
 
-	return (
-		<CSSTransition
-			nodeRef={nodeRef}
-			in={show}
-			timeout={3000}
-			classNames='main-animation-scale'
-			unmountOnExit
-		>
-			<section ref={nodeRef} className='sm-max:hidden'>
-				<Swiper
-					effect='fade'
-					className='bg-black shadow-shadow rounded-[30px] min-h-[200px] border-[1px]'
-					modules={[Autoplay, Pagination, Navigation]}
-					pagination={{ clickable: true }}
-					navigation={true}
-					autoplay={{ delay: 1500 }}
-					loop={true}
-					spaceBetween={50}
-					slidesPerView={1}
-				>
-					{bannersData.map(({ img, alt }) => (
-						<SwiperSlide key={alt}>
-							<BannerSlide img={img} alt={alt} />
-						</SwiperSlide>
-					))}
-				</Swiper>
-			</section>
-		</CSSTransition>
-	);
+  return (
+    <CSSTransition
+      nodeRef={nodeRef}
+      in={show}
+      timeout={3000}
+      classNames="main-animation-scale"
+      unmountOnExit
+    >
+      <section ref={nodeRef} className="sm-max:hidden">
+        <Swiper
+          effect="fade"
+          className="bg-black shadow-shadow rounded-[30px] min-h-[200px] border-[1px]"
+          modules={[Autoplay, Pagination, Navigation]}
+          pagination={{ clickable: true }}
+          navigation={true}
+          autoplay={{ delay: 1500 }}
+          loop={true}
+          spaceBetween={50}
+          slidesPerView={1}
+        >
+          {bannersData.map(({ img, alt }) => (
+            <SwiperSlide key={alt}>
+              <BannerSlide img={img} alt={alt} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
+    </CSSTransition>
+  );
 };
 
 export default Banner;

@@ -1,6 +1,6 @@
-import { FC, useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { CSSTransition } from "react-transition-group";
+import { FC, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 
 const Success: FC = (): JSX.Element => {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ const Success: FC = (): JSX.Element => {
   useEffect(() => {
     setShow(!show);
     const navigationTimeout = setTimeout(() => {
-      navigate("/");
+      navigate('/');
     }, 3000);
     return () => {
       clearTimeout(navigationTimeout);
@@ -27,7 +27,7 @@ const Success: FC = (): JSX.Element => {
     >
       <div
         ref={nodeRef}
-        className="sm-max:text-[16px] w-full rounded-[30px] bg-[white] shadow-shadow p-[40px] text-center font-bold bg-block-color-bg border-[1px]"
+        className="sm-max:text-[16px] w-full rounded-[30px] shadow-shadow p-[40px] text-center font-bold bg-block-color-bg border-[1px]"
       >
         Номер вашего заказа №123123, с Вами свяжется наш менеджер.
       </div>

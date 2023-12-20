@@ -1,6 +1,2 @@
-//TODO: Типизация OrderForm
-//TODO: Типизация Input
-//TODO: Типизация функций
 //TODO: Разделение логики кастомными хуками
 //TODO: Типизация AsyncCreateThunk (products.slice.ts)
-//TODO: Сделать один компонент socialItem 

@@ -45,12 +45,25 @@ export interface ICitiesData {
   label: string;
 }
 
-export interface IInput {
-  placeholder: string;
-  classNames: string;
-  register: (a: string, b: object) => object;
-  label: string;
-  required: object;
-  errors: object;
-  inputLabel: string;
+export interface ISocialData {
+  id: number;
+  icon: React.ElementType;
+  url: string;
 }
+
+export interface IOrderItemForm {
+  city: string;
+  phone: string;
+  street: string;
+  homeNumber: string;
+  flatNumber: string;
+  apartmentEntrance: string;
+}
+
+export type TInputLabel =
+  | 'city'
+  | 'phone'
+  | 'street'
+  | 'homeNumber'
+  | 'flatNumber'
+  | 'apartmentEntrance';
