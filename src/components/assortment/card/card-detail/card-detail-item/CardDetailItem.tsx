@@ -14,7 +14,7 @@ const CardDetailItem: FC<ICardDetailItemProps> = ({ product }): JSX.Element => {
 
   return (
     <div className="sm-max:block flex gap-4 mb-4">
-      <div className="sm:max-w-full sm-max:mb-5 md:h-[310px] w-full h-full">
+      <div className="sm:max-w-full sm-max:mb-5 w-full h-full">
         <img
           src={!img.complete ? ImageNotFound : img.src}
           alt={`${product.title}-img`}

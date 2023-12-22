@@ -1,4 +1,9 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {
+  PayloadAction,
+  UnknownAction,
+  createAsyncThunk,
+  createSlice,
+} from '@reduxjs/toolkit';
 import axios from 'axios';
 import { ICategory, IProduct } from 'interfaces/interfaces';
 
@@ -32,28 +37,32 @@ const initialState: IDefaultState = {
   error: null,
 };
 
-export const getProducts = createAsyncThunk(
+export const getProducts = createAsyncThunk<IProduct[]>(
   'products/getProducts',
   async () => {
-    const res = await axios.get('https://api.escuelajs.co/api/v1/products');
+    const res = await axios.get<IProduct[]>(
+      'https://api.escuelajs.co/api/v1/products',
+    );
     return res.data;
   },
 );
 
-export const getProductById = createAsyncThunk(
+export const getProductById = createAsyncThunk<IProduct, number>(
   'products/getProductById',
   async (id: number) => {
-    const res = await axios.get(
+    const res = await axios.get<IProduct>(
       `https://api.escuelajs.co/api/v1/products/${id}`,
     );
     return res.data;
   },
 );
 
-export const getProductsCategories = createAsyncThunk(
+export const getProductsCategories = createAsyncThunk<ICategory[]>(
   'products/getProductsCategories',
   async () => {
-    const res = await axios.get(`https://api.escuelajs.co/api/v1/categories`);
+    const res = await axios.get<ICategory[]>(
+      `https://api.escuelajs.co/api/v1/categories`,
+    );
     return res.data;
   },
 );
@@ -108,6 +117,7 @@ export const productsSlice = createSlice({
     builder
       .addCase(getProducts.pending, state => {
         state.isLoading = true;
+        state.error = null;
       })
       .addCase(
         getProducts.fulfilled,
@@ -115,14 +125,11 @@ export const productsSlice = createSlice({
           state.isLoading = false;
           state.productsList = action.payload;
         },
-      )
-      .addCase(getProducts.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.error;
-      });
+      );
     builder
       .addCase(getProductById.pending, state => {
         state.isLoading = true;
+        state.error = null;
       })
       .addCase(
         getProductById.fulfilled,
@@ -130,25 +137,26 @@ export const productsSlice = createSlice({
           state.isLoading = false;
           state.productById = action.payload;
         },
-      )
-      .addCase(getProductById.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.error;
-      });
+      );
     builder
       .addCase(getProductsCategories.pending, () => {})
       .addCase(
         getProductsCategories.fulfilled,
         (state, action: PayloadAction<ICategory[]>) => {
+          state.error = null;
           state.productsCategories = action.payload;
         },
       )
-      .addCase(getProductsCategories.rejected, (state, action) => {
+      .addMatcher(isError, (state, action: PayloadAction<string>) => {
         state.isLoading = false;
-        state.error = action.error;
+        state.error = { message: action.payload };
       });
   },
 });
+
+function isError(action: UnknownAction) {
+  return action.type.endsWith('rejected');
+}
 
 export const {
   setIsLoading,

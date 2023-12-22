@@ -20,7 +20,7 @@ const Home: FC = (): JSX.Element => {
     dispatch(getProducts());
     dispatch(getProductsCategories());
     dispatch(setIsSuccess(false));
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (!cartList.length) {
