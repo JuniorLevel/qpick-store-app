@@ -28,9 +28,10 @@ const Assortment: FC = (): JSX.Element => {
   }, [filteredProducts]);
 
   useEffect(() => {
-    setTimeout(() => {
+    const delay = setTimeout(() => {
       setSearchedProductsList(searchProducts(inputValue, filteredProducts));
     }, 1500);
+    return () => clearTimeout(delay);
   }, [inputValue]);
 
   return (

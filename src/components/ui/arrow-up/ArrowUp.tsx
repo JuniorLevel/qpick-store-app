@@ -4,14 +4,13 @@ import { BsFillArrowUpCircleFill } from 'react-icons/bs';
 const ArrowUp: FC = (): JSX.Element => {
   const [scroll, setScroll] = useState<number>(0);
 
-  const currentScrollY = () => {
-    document.addEventListener('scroll', () => {
-      setScroll(window.scrollY);
-    });
+  const currentScroll = () => {
+    if (window.scrollY < 2500) setScroll(window.scrollY);
   };
 
   useEffect(() => {
-    currentScrollY();
+    window.addEventListener('scroll', currentScroll);
+    return () => window.removeEventListener('scroll', currentScroll);
   }, [scroll]);
 
   return (
