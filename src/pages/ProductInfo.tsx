@@ -3,15 +3,15 @@ import Error from 'components/error/ErrorComponent.js';
 import Layout from 'components/layout/Layout';
 import Loader from 'components/loader/Loader';
 import { getProductById } from 'features/products/products.slice.ts';
-import { useAppDispatch, useAppSelector } from 'hooks/useStore.ts';
+import { useReduxState } from 'hooks/useReduxState';
+import { useAppDispatch } from 'hooks/useStore.ts';
 import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 const ProductInfo: FC = (): JSX.Element => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
-  const isLoading = useAppSelector(state => state.products.isLoading);
-  const error = useAppSelector(state => state.products.error);
+  const { isLoading, error } = useReduxState();
 
   useEffect(() => {
     if (!id) return;

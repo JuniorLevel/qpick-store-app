@@ -1,5 +1,6 @@
 import AddToCartBtn from 'components/ui/add-to-cart-btn/AddToCartBtn';
 import AddToFavoriteBtn from 'components/ui/add-to-favorite-btn/AddToFavoriteBtn';
+import { useImage } from 'hooks/useImage';
 import { IProduct } from 'interfaces/interfaces';
 import { FC } from 'react';
 import ImageNotFound from '/images/image-not-found.jpg';
@@ -9,14 +10,13 @@ interface ICardDetailItemProps {
 }
 
 const CardDetailItem: FC<ICardDetailItemProps> = ({ product }): JSX.Element => {
-  const img = new Image();
-  img.src = product.images.slice(0, 1)[0];
+  const { isLoadCompleteImage, imageSrc } = useImage(product);
 
   return (
     <div className="sm-max:block flex gap-4 mb-4">
       <div className="sm:max-w-full sm-max:mb-5 w-full h-full">
         <img
-          src={!img.complete ? ImageNotFound : img.src}
+          src={!isLoadCompleteImage ? ImageNotFound : imageSrc}
           alt={`${product.title}-img`}
           className="w-full h-full object-cover"
         />

@@ -8,13 +8,13 @@ import {
   getProductsCategories,
   setIsSuccess,
 } from 'features/products/products.slice.ts';
-import { useAppDispatch, useAppSelector } from 'hooks/useStore.ts';
+import { useReduxState } from 'hooks/useReduxState';
+import { useAppDispatch } from 'hooks/useStore.ts';
 import { FC, useEffect } from 'react';
 
 const Home: FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
-  const cartList = useAppSelector(state => state.products.cartList);
-  const error = useAppSelector(state => state.products.error);
+  const { cartList, error } = useReduxState();
 
   useEffect(() => {
     dispatch(getProducts());

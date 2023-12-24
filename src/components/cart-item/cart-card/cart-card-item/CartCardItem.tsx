@@ -1,3 +1,4 @@
+import { useImage } from 'hooks/useImage';
 import { IProduct } from 'interfaces/interfaces';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
@@ -9,15 +10,14 @@ interface ICartCardItemProps {
 }
 
 const CartCardItem: FC<ICartCardItemProps> = ({ product }): JSX.Element => {
-  const img = new Image();
-  img.src = product.images.slice(0, 1)[0];
+  const { isLoadCompleteImage, imageSrc } = useImage(product);
 
   return (
     <div className="lg-max:flex-col flex gap-3 items-center mb-3">
       <div className="lg:max-w-[250px] lg:max-h-[250px] h-[200px] w-[200px]">
         <Link to={`${PRODUCT_ROUTE}/${product.id}`}>
           <img
-            src={!img.complete ? ImageNotFound : img.src}
+            src={!isLoadCompleteImage ? ImageNotFound : imageSrc}
             alt={`product${product.id}`}
             className="rounded-[30px] w-full h-full object-cover"
           />

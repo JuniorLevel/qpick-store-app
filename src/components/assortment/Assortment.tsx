@@ -1,7 +1,8 @@
 import Loader from 'components/loader/Loader';
 import SelectFiltering from 'components/ui/select-filtering/SelectFiltering';
 import { searchProductByTitle } from 'features/products/products.slice.ts';
-import { useAppDispatch, useAppSelector } from 'hooks/useStore.ts';
+import { useReduxState } from 'hooks/useReduxState';
+import { useAppDispatch } from 'hooks/useStore.ts';
 import { IProduct } from 'interfaces/interfaces.ts';
 import { FC, useEffect, useState } from 'react';
 import CardList from './card-list/CardList';
@@ -9,15 +10,8 @@ import CardList from './card-list/CardList';
 const Assortment: FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
-  const isLoading = useAppSelector(state => state.products.isLoading);
-
-  const inputValue = useAppSelector(state => state.products.searchProduct);
-
-  const productsList = useAppSelector(state => state.products.productsList);
-
-  const filteredProducts = useAppSelector(
-    state => state.products.filteredProducts,
-  );
+  const { isLoading, inputValue, productsList, filteredProducts } =
+    useReduxState();
 
   const [searchedProductsList, setSearchedProductsList] = useState<IProduct[]>(
     [],
@@ -34,7 +28,9 @@ const Assortment: FC = (): JSX.Element => {
   }, [filteredProducts]);
 
   useEffect(() => {
-    setSearchedProductsList(searchProducts(inputValue, filteredProducts));
+    setTimeout(() => {
+      setSearchedProductsList(searchProducts(inputValue, filteredProducts));
+    }, 1500);
   }, [inputValue]);
 
   return (

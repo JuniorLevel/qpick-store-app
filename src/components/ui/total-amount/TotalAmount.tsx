@@ -1,7 +1,7 @@
-import { useAppSelector } from 'hooks/useStore.ts';
+import { useReduxState } from 'hooks/useReduxState';
 import { FC } from 'react';
 const TotalAmount: FC = (): JSX.Element => {
-  const totalPrice = useAppSelector(state => state.prices.totalPrice);
+  const { totalPrice } = useReduxState();
   return (
     <div className="w-full">
       <div className="sm-max:text-[15px] flex justify-between text-[20px] text-black font-bold w-full text-main-text">

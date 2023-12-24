@@ -1,10 +1,9 @@
-import { useAppSelector } from 'hooks/useStore.ts';
+import { useReduxState } from 'hooks/useReduxState';
 import { FC } from 'react';
 import { PiHeartStraightLight } from 'react-icons/pi';
 
 const FavoritesBtn: FC = (): JSX.Element => {
-  const favoritesList = useAppSelector(state => state.products.favoritesList);
-
+  const { favoritesList } = useReduxState();
   return (
     <div className="relative w-[30px] h-[30px]">
       <PiHeartStraightLight className="w-full h-full fill-main-text hover:fill-hover-color transition ease-in-out duration-0 hover:duration-500" />

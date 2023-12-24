@@ -2,29 +2,20 @@ import Loader from 'components/loader/Loader';
 import OrderItemFormInputs from 'components/order/order-item/order-item-form/order-item-form-inputs/OrderItemFormInputs';
 import ButtonSubmit from 'components/ui/button-submit/ButtonSubmit.js';
 import Input from 'components/ui/input/Input.js';
+import { FC } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+
 import {
   clearCartList,
   setIsLoading,
   setIsSuccess,
 } from 'features/products/products.slice.ts';
-import { useAppDispatch, useAppSelector } from 'hooks/useStore.ts';
-import { FC } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-
+import { useReduxState } from 'hooks/useReduxState.ts';
+import { useAppDispatch } from 'hooks/useStore.ts';
 import { IOrderItemForm } from 'interfaces/interfaces.ts';
 import OrderItemSelect from '../order-item-select/OrderItemSelect.tsx';
 
 const OrderItemForm: FC = (): JSX.Element => {
-  const isLoading = useAppSelector(state => state.products.isLoading);
-  const cartList = useAppSelector(state => state.products.cartList);
-  const totalPrice = useAppSelector(state => state.prices.totalPrice);
-  const dispatch = useAppDispatch();
-  const orderList = cartList.map(value => ({
-    productName: value.title,
-    price: value.price,
-    amount: localStorage.getItem(`count${value.id}`),
-  }));
-
   const {
     register,
     handleSubmit,
@@ -34,8 +25,15 @@ const OrderItemForm: FC = (): JSX.Element => {
   } = useForm<IOrderItemForm>({
     mode: 'onChange',
   });
+  const dispatch = useAppDispatch();
+  const { cartList, totalPrice, isLoading } = useReduxState();
 
   const onSubmit: SubmitHandler<IOrderItemForm> = data => {
+    const orderList = cartList.map(value => ({
+      productName: value.title,
+      price: value.price,
+      amount: localStorage.getItem(`count${value.id}`),
+    }));
     try {
       const order = { totalPrice, orderList: [...orderList], data };
       dispatch(setIsLoading(true));

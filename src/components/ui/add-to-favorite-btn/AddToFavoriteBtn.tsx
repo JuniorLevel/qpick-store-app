@@ -1,13 +1,10 @@
 import styles from 'components/assortment/card/Card.module.scss';
-import {
-  addToFavorite,
-  removeFromFavorite,
-} from 'features/products/products.slice.ts';
 import { useAppDispatch } from 'hooks/useStore.ts';
 import { IProduct } from 'interfaces/interfaces.ts';
 import { FC, useState } from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { IoMdClose } from 'react-icons/io';
+import { addToFavoriteFn } from 'utils/addToFavoriteFn';
 
 interface IAddToFavoriteBtnProps {
   product: IProduct;
@@ -27,24 +24,7 @@ const AddToFavoriteBtn: FC<IAddToFavoriteBtnProps> = ({
         isFavorite ? styles.card__btnFavoriteActive : styles.card__btnFavorite
       }
       onClick={() => {
-        if (
-          !isFavorite &&
-          !localStorage.getItem(`isFavoriteProduct${product.id}id`)
-        ) {
-          dispatch(addToFavorite(product));
-          localStorage.setItem(
-            `isFavoriteProduct${product.id}id`,
-            String(true),
-          );
-          setIsFavorite(
-            Boolean(localStorage.getItem(`isFavoriteProduct${product.id}id`)),
-          );
-        }
-
-        if (window.location.pathname === '/favorites') {
-          dispatch(removeFromFavorite(product));
-          localStorage.removeItem(`isFavoriteProduct${product.id}id`);
-        }
+        addToFavoriteFn(dispatch, isFavorite, setIsFavorite, product);
       }}
     >
       {window.location.pathname === '/favorites' ? (

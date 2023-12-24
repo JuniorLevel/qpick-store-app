@@ -1,12 +1,12 @@
 import Success from 'components/ui/success/Success';
-import { useAppSelector } from 'hooks/useStore.ts';
+import { useReduxState } from 'hooks/useReduxState';
 import { FC, useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import OrderItemLeft from './order-item-left/OrderItemLeft';
 import OrderItemRight from './order-item-right/OrderItemRight';
 
 const OrderItem: FC = (): JSX.Element => {
-  const isSuccess = useAppSelector(state => state.products.isSuccess);
+  const { isSuccess } = useReduxState();
   const [show, setShow] = useState<boolean>(false);
   const nodeRef = useRef<HTMLElement | null>(null);
   useEffect(() => {

@@ -1,9 +1,9 @@
-import { useAppSelector } from 'hooks/useStore.ts';
+import { useReduxState } from 'hooks/useReduxState';
 import { FC } from 'react';
 import { BsCart2 } from 'react-icons/bs';
 
 const CartBtn: FC = (): JSX.Element => {
-  const cartList = useAppSelector(state => state.products.cartList);
+  const { cartList } = useReduxState();
 
   return (
     <div className="flex items-center relative w-[30px] h-[30px]">

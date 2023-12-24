@@ -2,12 +2,12 @@ import Card from 'components/assortment/card/Card';
 import Layout from 'components/layout/Layout';
 import EmptyItem from 'components/ui/empty-item/EmptyItem';
 import Title from 'components/ui/title/Title';
-import { useAppSelector } from 'hooks/useStore.ts';
+import { useReduxState } from 'hooks/useReduxState';
 import { FC, useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 const Favorites: FC = (): JSX.Element => {
-  const favoritesList = useAppSelector(state => state.products.favoritesList);
+  const { favoritesList } = useReduxState();
 
   const nodeRef = useRef<HTMLDivElement | null>(null);
   const [show, setShow] = useState<boolean>(false);

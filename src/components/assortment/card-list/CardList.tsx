@@ -1,5 +1,5 @@
 import Card from 'components/assortment/card/Card';
-import { useAppSelector } from 'hooks/useStore.ts';
+import { useReduxState } from 'hooks/useReduxState';
 import { IProduct } from 'interfaces/interfaces.ts';
 import { FC, useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
@@ -9,7 +9,7 @@ interface ICardListProps {
 }
 
 const CardList: FC<ICardListProps> = ({ products }): JSX.Element => {
-  const isLoading = useAppSelector(state => state.products.isLoading);
+  const { isLoading } = useReduxState();
   const nodeRef = useRef<HTMLDivElement | null>(null);
   const [show, setShow] = useState<boolean>(false);
 

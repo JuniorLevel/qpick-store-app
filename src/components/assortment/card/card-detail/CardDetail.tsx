@@ -1,7 +1,7 @@
+import { useReduxState } from 'hooks/useReduxState';
 import { FC, useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import Title from '../../../ui/title/Title';
-import { useAppSelector } from './../../../../hooks/useStore';
 import styles from './../Card.module.scss';
 import CardDetailInfo from './card-detail-info/CardDetailInfo';
 import CardDetailItem from './card-detail-item/CardDetailItem';
@@ -9,13 +9,11 @@ import CardDetailItem from './card-detail-item/CardDetailItem';
 const CardDetail: FC = () => {
   const [show, setShow] = useState<boolean>(false);
   const nodeRef = useRef<HTMLDivElement | null>(null);
-  const isLoading = useAppSelector(state => state.products.isLoading);
+  const { isLoading, product } = useReduxState();
 
   useEffect(() => {
     setShow(!show);
   }, [isLoading]);
-
-  const product = useAppSelector(state => state.products.productById);
 
   if (!product) return;
 

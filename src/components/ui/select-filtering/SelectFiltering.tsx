@@ -1,19 +1,15 @@
 import { filterProducts } from 'features/products/products.slice.ts';
-import { useAppDispatch, useAppSelector } from 'hooks/useStore.ts';
+import { useReduxState } from 'hooks/useReduxState';
+import { useAppDispatch } from 'hooks/useStore.ts';
 import { FC, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 const SelectFiltering: FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
-
-  const productsList = useAppSelector(state => state.products.productsList);
-
-  const productsCategories = useAppSelector(
-    state => state.products.productsCategories,
-  );
+  const { productsList, productsCategories } = useReduxState();
 
   useEffect(() => {
     dispatch(filterProducts(productsList));
-  }, []);
+  }, [dispatch]);
   return (
     <div className="my-5 text-end">
       <Form.Select

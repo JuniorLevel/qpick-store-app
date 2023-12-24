@@ -7,7 +7,7 @@ interface IYandexMapProps {
 const YandexMap: FC<IYandexMapProps> = ({ src }): JSX.Element => {
   return (
     <div className="w-full h-full">
-      <iframe width="100%" height="100%" src={src}></iframe>
+      <iframe title="yandex-map" width="100%" height="100%" src={src}></iframe>
     </div>
   );
 };

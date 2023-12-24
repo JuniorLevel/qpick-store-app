@@ -1,5 +1,6 @@
 import AddToCartBtn from 'components/ui/add-to-cart-btn/AddToCartBtn';
 import AddToFavoriteBtn from 'components/ui/add-to-favorite-btn/AddToFavoriteBtn';
+import { useImage } from 'hooks/useImage';
 import { IProduct } from 'interfaces/interfaces.ts';
 import { FC } from 'react';
 import { FiStar } from 'react-icons/fi';
@@ -19,8 +20,7 @@ const Card: FC<ICardProps> = ({ product }): JSX.Element => {
     triggerOnce: true,
   });
 
-  const img = new Image();
-  img.src = product.images[0];
+  const { isLoadCompleteImage, imageSrc } = useImage(product);
 
   return (
     <article
@@ -35,7 +35,7 @@ const Card: FC<ICardProps> = ({ product }): JSX.Element => {
             {inView ? (
               <img
                 className="w-full h-full object-cover"
-                src={!img.complete ? ImageNotFound : img.src}
+                src={!isLoadCompleteImage ? ImageNotFound : imageSrc}
                 alt={`product${product.id}`}
               />
             ) : (

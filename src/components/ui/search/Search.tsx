@@ -1,17 +1,18 @@
 import { searchProductByTitle } from 'features/products/products.slice.ts';
-import { useAppDispatch, useAppSelector } from 'hooks/useStore.ts';
+import { useReduxState } from 'hooks/useReduxState';
+import { useAppDispatch } from 'hooks/useStore.ts';
 import { FC, useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { MdClear } from 'react-icons/md';
 
 const Search: FC = (): JSX.Element => {
-  const searchProduct = useAppSelector(state => state.products.searchProduct);
+  const { searchProduct } = useReduxState();
   const [inputValue, setInputValue] = useState<string>(searchProduct);
   const dispatch = useAppDispatch();
   const clearInput = () => setInputValue('');
   useEffect(() => {
     dispatch(searchProductByTitle(inputValue));
-  }, [inputValue]);
+  }, [dispatch, inputValue]);
   return (
     <div className="sm-max:order-4 sm-max:mt-4 sm-max:mx-auto relative max-w-[500px] w-full mx-2">
       <AiOutlineSearch className="absolute top-3 left-2" />
@@ -25,7 +26,7 @@ const Search: FC = (): JSX.Element => {
         }}
       />
       <MdClear
-        onClick={() => clearInput()}
+        onClick={clearInput}
         className={`${
           !inputValue ? 'hidden' : 'absolute'
         }  top-3 right-3 hover:cursor-pointer`}
